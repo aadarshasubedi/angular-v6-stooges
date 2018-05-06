@@ -9,13 +9,11 @@
     "@schematics/angular:component": {
       "changeDetection": "OnPush",
       "spec": false,
-      "inlineStyle": false,
-      "prefix": "",
-      "styleext": "scss"
+      "inlineStyle": false,     
+      "styleext": "scss"      
     },
     "@schematics/angular:directive": {
-      "spec": false,
-      "prefix": ""
+      "spec": false     
     },
     "@schematics/angular:module": {
       "spec": false,
