@@ -9,11 +9,11 @@
     "@schematics/angular:component": {
       "changeDetection": "OnPush",
       "spec": false,
-      "inlineStyle": false,     
-      "styleext": "scss"      
+      "inlineStyle": false,
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "spec": false     
+      "spec": false
     },
     "@schematics/angular:module": {
       "spec": false,
@@ -155,7 +155,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {            
+          "options": {
             "outputPath": "dist/web",
             "index": "projects/web/src/index.html",
             "main": "projects/web/src/main.ts",
@@ -258,6 +258,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "projects/web-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "stooges": {
+      "root": "projects/stooges",
+      "sourceRoot": "projects/stooges/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/stooges/tsconfig.lib.json",
+            "project": "projects/stooges/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/stooges/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/stooges/src/test.ts",
+            "tsConfig": "projects/stooges/tsconfig.spec.json",
+            "karmaConfig": "projects/stooges/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/stooges/tsconfig.lib.json",
+              "projects/stooges/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

@@ -18,13 +18,14 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "strictNullChecks" : true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
-    "noUnusedParameters" : true,
+    "noUnusedParameters": true,
     "alwaysStrict": true,
+    "paths": {
+      "stooges": [
+        "dist/stooges"
+      ]
+    }
   }
 }
-
- 
- 
-
