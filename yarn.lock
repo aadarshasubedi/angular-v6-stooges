@@ -2666,10 +2666,6 @@ hammer-timejs@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hammer-timejs/-/hammer-timejs-1.1.0.tgz#fc07ec1e4012228fe51b6a51218ec12661a32a42"
 
-hammer-touchemulator@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/hammer-touchemulator/-/hammer-touchemulator-0.0.2.tgz#8bea4616729d53bf75f16c58f599c184e54a590e"
-
 hammerjs@^2.0.6, hammerjs@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
@@ -5136,7 +5132,7 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-reflect-metadata@^0.1.2:
+reflect-metadata@^0.1.12, reflect-metadata@^0.1.2:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
 

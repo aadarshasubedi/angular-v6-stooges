@@ -21,14 +21,6 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "alwaysStrict": true,
-    "paths": {
-      "stooges": [
-        "dist/stooges"
-      ],
-      "stooges/testing": [
-        "dist/stooges/testing"
-      ]
-    }
+    "alwaysStrict": true
   }
 }
