@@ -2,6 +2,9 @@ import 'reflect-metadata';
 import 'hammerjs';
 import 'hammer-timejs';
 
+import { dada } from '@stooges';
+ console.log(dada);
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
