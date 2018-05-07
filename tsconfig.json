@@ -25,6 +25,9 @@
     "paths": {
       "stooges": [
         "dist/stooges"
+      ],
+      "stooges/testing": [
+        "dist/stooges/testing"
       ]
     }
   }
