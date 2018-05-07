@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+@import 'theme';
+@import 'mixin';
+ 
+.youtubeLoading {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 3px;
+  //background:  mat-color(map-get(getTheme(), primary), default, 0.9);
+  background:  #fff;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: block; 
+}
