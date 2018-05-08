@@ -1,6 +1,6 @@
-import { trigger, animate, transition, style } from '@angular/animations';
+import { trigger, animate, transition, style, AnimationTriggerMetadata } from '@angular/animations';
 
-export const dynamicSlideUpDownAnimation =
+export const dynamicSlideUpDownAnimation : AnimationTriggerMetadata =
   trigger('dynamicSlideUpDown', [
     transition(':enter', [
       style({

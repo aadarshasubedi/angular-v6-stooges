@@ -1,6 +1,6 @@
-import { trigger, animate, transition, style } from '@angular/animations';
+import { trigger, animate, transition, style, AnimationTriggerMetadata } from '@angular/animations';
 
-export const fadeInOutAnimation =
+export const fadeInOutAnimation: AnimationTriggerMetadata =
     trigger('fadeInOut', [
         transition(':enter', [
             style({ opacity: 0 }),

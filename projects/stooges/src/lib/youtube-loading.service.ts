@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class YoutubeLoadingService {
 
   constructor() { }
@@ -18,5 +20,4 @@ export class YoutubeLoadingService {
     this.count--;
     if (this.count == 0) this.loading$.next(false);
   }
-
 }

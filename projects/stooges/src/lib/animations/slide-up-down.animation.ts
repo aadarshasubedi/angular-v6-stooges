@@ -1,6 +1,6 @@
-import { trigger, state, animate, transition, style } from '@angular/animations';
+import { trigger, state, animate, transition, style, AnimationTriggerMetadata } from '@angular/animations';
 
-export const slideUpDownAnimation =
+export const slideUpDownAnimation : AnimationTriggerMetadata =
   trigger('slideUpDown', [
     state('true', style({
       height: '*'

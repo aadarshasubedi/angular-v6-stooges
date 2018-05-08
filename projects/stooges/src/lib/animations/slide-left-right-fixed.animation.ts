@@ -1,6 +1,6 @@
-import { trigger, state, animate, transition, style } from '@angular/animations';
+import { trigger, state, animate, transition, style, AnimationTriggerMetadata } from '@angular/animations';
 
-export const slideLeftRightFixedAnimation =
+export const slideLeftRightFixedAnimation : AnimationTriggerMetadata =
   trigger('slideLeftRightFixed', [
     state('*', style({
       position: 'fixed',

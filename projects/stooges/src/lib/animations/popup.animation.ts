@@ -1,6 +1,6 @@
-import { animate, keyframes, query, state, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, query, state, style, transition, trigger, AnimationTriggerMetadata } from '@angular/animations';
 
-export const popupAnimation =
+export const popupAnimation : AnimationTriggerMetadata =
     trigger('popup', [
         state('false', style({
             display: 'none'

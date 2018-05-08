@@ -1,6 +1,6 @@
-import { trigger, state, animate, transition, style } from '@angular/animations';
+import { trigger, state, animate, transition, style, AnimationTriggerMetadata } from '@angular/animations';
 
-export const slideInOutAnimation =
+export const slideInOutAnimation : AnimationTriggerMetadata =
     trigger('slideInOut', [
 
         // end state styles for route container (host)

@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { YoutubeLoadingService } from './../../youtube-loading.service';
+import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { trigger, state, animate, transition, style } from '@angular/animations';
 
 @Component({
-  selector: 's-youtube-loading',
+  selector: 'youtube-loading',
   templateUrl: './youtube-loading.component.html',
   styleUrls: ['./youtube-loading.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,13 +27,17 @@ import { trigger, state, animate, transition, style } from '@angular/animations'
 })
 export class YoutubeLoadingComponent implements OnInit {
 
-  constructor() { }
-
-  @Input()
+  constructor(
+    private youtubeLoadingService : YoutubeLoadingService,
+    private cdr : ChangeDetectorRef
+  ) { }
+  
   isShow: boolean;
-
+  
   ngOnInit() {
-
+    this.youtubeLoadingService.loading$.subscribe(isShow => {
+      this.isShow = isShow;
+      this.cdr.markForCheck();
+    });
   }
-
 }
