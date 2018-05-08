@@ -20,7 +20,7 @@ export type CompareType = 'eq' | 'gt' | 'ge' | 'lt' | 'le';
 export interface TitleMetaDescription { title?: string; metaDescription?: string; }
 export interface RobotsRule { self: RobotsValue; children: RobotsValue; }
 export type RobotsValue = 'index, follow' | 'noindex, nofollow' | 'index, nofollow' | 'noindex, follow';
-
+export type Device = 'pc' | 'mobile' | 'tablet';
 export enum KeyCode {
     arrowLeft = 37,
     arrowUp = 38,

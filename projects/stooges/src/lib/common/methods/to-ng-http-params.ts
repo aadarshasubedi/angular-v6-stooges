@@ -1,4 +1,4 @@
-import { QueryParams } from "../types";
+import { QueryParams } from "../../types";
 import { HttpParams, HttpUrlEncodingCodec } from '@angular/common/http';
 
 export function toNgHttpParams(queryParams: QueryParams = {}): HttpParams {

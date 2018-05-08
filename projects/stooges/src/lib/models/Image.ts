@@ -1,6 +1,6 @@
 // import { ImageMetadata } from '../../modules/entity/decorators';
 import { File } from './File';
-import { defineHideProperty } from '../common-method';
+import { defineHideProperty } from '../common';
 
 export class Image extends File {
 

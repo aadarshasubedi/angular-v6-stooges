@@ -1,4 +1,4 @@
-import { getByPath, isDate } from './common-method';
+import { getByPath, isDate } from './common';
 
 declare global {
     interface Date {

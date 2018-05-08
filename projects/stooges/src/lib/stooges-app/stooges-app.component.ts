@@ -1,4 +1,3 @@
-import { YoutubeLoadingService } from '../youtube-loading.service';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -8,9 +7,8 @@ import {
 } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { popupAnimation } from '../animations';
-import { AlertService } from '../alert.service';
+import { AlertService, TitleMetaDescriptionService, YoutubeLoadingService } from '../common';
 import { filter } from 'rxjs/operators';
-import { TitleMetaDescriptionService } from '../title-meta-description.service';
 
 @Component({
   selector: 'stooges-app',

@@ -1,4 +1,4 @@
-import { YoutubeLoadingService } from './../../youtube-loading.service';
+import { YoutubeLoadingService } from '../../common';
 import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { trigger, state, animate, transition, style } from '@angular/animations';
 

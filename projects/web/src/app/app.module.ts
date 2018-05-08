@@ -3,14 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoogesAppModule, TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from '@stooges';
-
-const propagating = require('propagating-hammerjs');
-export interface PropagatingHammerInput extends HammerInput {
-    stopPropagation(): void;
-}
-console.log(propagating);
-
+import { StoogesAppModule } from '@stooges';
+ 
 @NgModule({
   declarations: [
     AppComponent
@@ -19,15 +13,11 @@ console.log(propagating);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoogesAppModule
+    StoogesAppModule.forRoot({
+      titleSuffix : 'Stooges'
+    })
   ],
-  providers: [
-    {
-      provide: TITLE_META_DESCRIPTION_CONFIG, useValue: new TitleMetaDescriptionConfig({
-        titleSuffix: 'Stooges'
-      })
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

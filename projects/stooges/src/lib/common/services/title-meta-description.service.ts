@@ -3,7 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from './title-meta-description-config';
-import { TitleMetaDescription, RobotsValue, RobotsRule } from './types';
+import { TitleMetaDescription, RobotsValue, RobotsRule } from '../../types';
  
 @Injectable({
   providedIn: 'root'

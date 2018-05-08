@@ -3,4 +3,5 @@ export class StoogesAppSetupData {
         Object.assign(this, data);
     }
     titleSuffix : string
+    uploadedFilesPath : string
 }
