@@ -1,3 +1,4 @@
+import { TitleMetaDescriptionService } from '@stooges';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 
@@ -8,9 +9,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleMetaDescriptionService : TitleMetaDescriptionService
+  ) { }
 
   ngOnInit() {
+    this.titleMetaDescriptionService.update({
+      title : 'New Home',
+      metaDescription : 'New Home Description'
+    });
   }
 
 }

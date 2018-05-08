@@ -5,6 +5,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoogesAppModule, TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from '@stooges';
 
+const propagating = require('propagating-hammerjs');
+export interface PropagatingHammerInput extends HammerInput {
+    stopPropagation(): void;
+}
+console.log(propagating);
+
 @NgModule({
   declarations: [
     AppComponent

@@ -3,11 +3,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from './title-meta-description-config';
-
-export interface TitleMetaDescription { title?: string; metaDescription?: string; }
-type RobotsValue = 'index, follow' | 'noindex, nofollow' | 'index, nofollow' | 'noindex, follow';
-interface RobotsRule { self: RobotsValue; children: RobotsValue; }
-
+import { TitleMetaDescription, RobotsValue, RobotsRule } from './types';
+ 
 @Injectable({
   providedIn: 'root'
 })

@@ -11,7 +11,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "types": [],
+    "types": [
+      "node",
+      "hammerjs"
+    ],
     "lib": [
       "dom",
       "es2015"

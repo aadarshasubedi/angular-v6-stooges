@@ -17,16 +17,9 @@ export interface Metadata {
 }
 export type CompareType = 'eq' | 'gt' | 'ge' | 'lt' | 'le';
 
-// 只是让我知道有多少个 routeData 还有方便调用而已
-// 没有任何 type protect 的作用的
-export interface RouteData {
-    title?: any;
-    metaDescription?: any;
-    robotsRule?: any;
-    authGuardRole?: any;
-    authLoginPath?: any;
-    authNoRolePath?: any;
-}
+export interface TitleMetaDescription { title?: string; metaDescription?: string; }
+export interface RobotsRule { self: RobotsValue; children: RobotsValue; }
+export type RobotsValue = 'index, follow' | 'noindex, nofollow' | 'index, nofollow' | 'noindex, follow';
 
 export enum KeyCode {
     arrowLeft = 37,
