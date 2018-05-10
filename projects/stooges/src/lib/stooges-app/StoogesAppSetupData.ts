@@ -4,4 +4,5 @@ export class StoogesAppSetupData {
     }
     titleSuffix : string
     uploadedFilesPath : string
+    APIServer : string
 }

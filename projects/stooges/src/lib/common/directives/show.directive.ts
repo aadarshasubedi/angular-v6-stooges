@@ -1,7 +1,9 @@
 import { Directive, ElementRef, Input, Renderer2, RendererStyleFlags2 } from '@angular/core';
 
 
-@Directive({ selector: '[show]' })
+@Directive({
+    selector: '[sShow]'
+})
 export class ShowDirective {
     constructor(
         private el: ElementRef,

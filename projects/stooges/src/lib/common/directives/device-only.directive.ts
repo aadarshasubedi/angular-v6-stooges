@@ -1,33 +1,49 @@
 import { DeviceService } from '../services/device.service';
-import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, OnInit, TemplateRef, ViewContainerRef, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Platform } from '@angular/cdk/platform';
+import { Device } from '../../types';
+import { Subscription } from 'rxjs';
 
-
-// <div *sDeviceOnly="'pc,tablet'" >test</div>
+// <div *sDeviceOnly="['pc','tablet']" >test</div>
 @Directive({
   selector: '[sDeviceOnly]'
 })
-export class DeviceOnlyDirective implements OnInit {
+export class DeviceOnlyDirective implements OnInit, OnDestroy {
 
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainerRef: ViewContainerRef,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private platform: Platform,
+    private cdr: ChangeDetectorRef
   ) { }
 
-  @Input() set sDeviceOnly(match: string) {
-    match = match.clearSpace();
-    const device = this.deviceService.device;
-    const matchs = match.split(',');
-    const isShow = matchs.indexOf(device) != -1;
-    if (isShow) {
-      this.viewContainerRef.createEmbeddedView(this.templateRef);
-    } else {
-      this.viewContainerRef.clear();
+  @Input()
+  sDeviceOnly: Device[]
+
+  sub = new Subscription();
+  private showing = false;
+
+  ngOnInit() {
+    if (this.platform.isBrowser) {
+      this.sub.add(this.deviceService.device$.subscribe(currentDevice => {
+        const matchDevices = this.sDeviceOnly;
+        const match = matchDevices.indexOf(currentDevice) != -1;
+        if (match && !this.showing) {
+          this.showing = true;
+          this.viewContainerRef.createEmbeddedView(this.templateRef);
+          this.cdr.markForCheck();
+        }
+        else if (!match && this.showing) {
+          this.showing = false;
+          this.viewContainerRef.clear();
+          this.cdr.markForCheck();
+        }
+      }))
     }
   }
 
-  ngOnInit() {
-
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
-
 }

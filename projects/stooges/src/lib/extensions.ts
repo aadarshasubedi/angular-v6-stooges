@@ -18,7 +18,7 @@ declare global {
         toDateString(): string;
     }
     interface Array<T> {
-        singleOrDefault(filter?: (item: T) => boolean): T;
+        singleOrDefault(filter?: (item: T) => boolean): T | undefined;
         groupBy(compareWith?: (a: T, b: T) => boolean): T[][];
         orderBy(paths: string[], needClone?: boolean, convertValue?: (path: string, value: any) => any): T[];
         sum(getNumberFn?: (item: T) => number): number;

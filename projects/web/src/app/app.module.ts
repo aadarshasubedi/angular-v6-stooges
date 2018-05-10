@@ -16,7 +16,8 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     StoogesAppModule.forRoot({
       titleSuffix: 'Stooges',
-      uploadedFilesPath: environment.uploadedFilesPath
+      uploadedFilesPath: environment.uploadedFilesPath,
+      APIServer : environment.APIServer
     })
   ],
   bootstrap: [AppComponent]

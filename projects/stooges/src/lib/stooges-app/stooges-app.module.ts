@@ -6,6 +6,7 @@ import { YoutubeLoadingComponent } from './youtube-loading/youtube-loading.compo
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { StoogesHammerGestureConfig } from './hammer-config';
 import { StoogesAppSetupData } from './StoogesAppSetupData';
+import { API_SERVER_CONFIG, APIServerConfig } from '../common/services/api-server-config';
 
 @NgModule({
   imports: [],
@@ -34,6 +35,11 @@ export class StoogesAppModule {
         {
           provide: UPLOADED_PATH_CONFIG, useValue: new UploadedPathConfig({
             uploadedFilesPath: data.uploadedFilesPath
+          })
+        },
+        {
+          provide: API_SERVER_CONFIG, useValue: new APIServerConfig({
+            path: data.APIServer
           })
         },
       ]

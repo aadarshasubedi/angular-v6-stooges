@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, Renderer2, RendererStyleFlags2 } from '@angular/core';
 
 @Directive({
-    selector: '[hide]'
+    selector: '[sHide]'
  })
 export class HideDirective {
 

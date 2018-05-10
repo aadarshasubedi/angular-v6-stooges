@@ -1,3 +1,4 @@
+
 /*
  * Public API Surface of stooges
  */
@@ -9,6 +10,22 @@ export { StoogesAppComponent } from './lib/stooges-app/stooges-app.component';
 
 export { CommonModule } from './lib/common/common.module';
 export { AutoResizeDirective } from './lib/common/directives/auto-resize.directive';
+export { DeviceOnlyDirective } from './lib/common/directives/device-only.directive';
+export { DragOverDirective } from './lib/common/directives/drag-over.directive';
+export { HideDirective } from './lib/common/directives/hide.directive';
+export { HistoryBackDirective } from './lib/common/directives/history-back.directive';
+export { ShowDirective } from './lib/common/directives/show.directive';
+
+export { AgePipe } from './lib/common/pipes/age.pipe';
+export { ArrayRangePipe } from './lib/common/pipes/array-range.pipe';
+export { CamelCaseToRegularStringPipe } from './lib/common/pipes/camel-case-to-regular-string.pipe';
+export { DownloadPipe } from './lib/common/pipes/download.pipe';
+export { SafeHtmlPipe } from './lib/common/pipes/safe-html.pipe';
+export { SafeStylePipe } from './lib/common/pipes/safe-style.pipe';
+export { SafeUrlPipe } from './lib/common/pipes/safe-url.pipe';
+export { YoutubeCodePipe } from './lib/common/pipes/youtube-code.pipe';
+
+
 
 
 
