@@ -7,9 +7,12 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { StoogesHammerGestureConfig } from './hammer-config';
 import { StoogesAppSetupData } from './StoogesAppSetupData';
 import { API_SERVER_CONFIG, APIServerConfig } from '../common/services/api-server-config';
+import { HttpModule } from '../http/http.module';
 
 @NgModule({
-  imports: [],
+  imports: [
+    HttpModule
+  ],
   exports: [StoogesAppComponent],
   declarations: [
     StoogesAppComponent,
