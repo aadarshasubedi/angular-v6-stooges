@@ -8,3 +8,4 @@ export * from './device.service';
 export * from './uploaded-path-config';
 export * from './uploaded-path.service';
 export * from './api-server-config';
+export * from './image.service';

@@ -15,6 +15,7 @@ export { DragOverDirective } from './lib/common/directives/drag-over.directive';
 export { HideDirective } from './lib/common/directives/hide.directive';
 export { HistoryBackDirective } from './lib/common/directives/history-back.directive';
 export { ShowDirective } from './lib/common/directives/show.directive';
+export { ImageDirective } from './lib/common/directives/image.directive';
 
 export { AgePipe } from './lib/common/pipes/age.pipe';
 export { ArrayRangePipe } from './lib/common/pipes/array-range.pipe';

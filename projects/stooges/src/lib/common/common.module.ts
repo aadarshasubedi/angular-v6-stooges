@@ -14,6 +14,7 @@ import { ArrayRangePipe } from './pipes/array-range.pipe';
 import { CamelCaseToRegularStringPipe } from './pipes/camel-case-to-regular-string.pipe';
 import { DownloadPipe } from './pipes/download.pipe';
 import { YoutubeCodePipe } from './pipes';
+import { ImageDirective } from './directives/image.directive';
 
 @NgModule({
   imports: [],
@@ -25,6 +26,7 @@ import { YoutubeCodePipe } from './pipes';
     HideDirective,
     HistoryBackDirective,
     ShowDirective,
+    ImageDirective,
     AgePipe,
     ArrayRangePipe,
     CamelCaseToRegularStringPipe,
@@ -41,6 +43,7 @@ import { YoutubeCodePipe } from './pipes';
     HideDirective,
     HistoryBackDirective,
     ShowDirective,
+    ImageDirective,
     AgePipe,
     ArrayRangePipe,
     CamelCaseToRegularStringPipe,
