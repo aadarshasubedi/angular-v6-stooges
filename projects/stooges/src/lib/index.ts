@@ -5,3 +5,4 @@ export * from './extensions';
 export * from './models';
 export * from './animations';
 export * from './stooges-app';
+export * from './decorators';
