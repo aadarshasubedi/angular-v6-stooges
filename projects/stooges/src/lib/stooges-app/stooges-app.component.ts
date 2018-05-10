@@ -7,7 +7,9 @@ import {
 } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { popupAnimation } from '../animations';
-import { AlertService, TitleMetaDescriptionService, YoutubeLoadingService } from '../common';
+import { YoutubeLoadingService } from '../common/services/youtube-loading.service';
+import { AlertService } from '../common/services/alert.service';
+import { TitleMetaDescriptionService } from '../common/services/title-meta-description.service';
 import { filter } from 'rxjs/operators';
 
 @Component({

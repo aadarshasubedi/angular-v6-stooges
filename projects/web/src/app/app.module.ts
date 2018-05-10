@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoogesAppModule } from '@stooges';
- 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,10 +15,10 @@ import { StoogesAppModule } from '@stooges';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoogesAppModule.forRoot({
-      titleSuffix : 'Stooges'
+      titleSuffix: 'Stooges',
+      uploadedFilesPath: environment.uploadedFilesPath
     })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

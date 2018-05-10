@@ -1,0 +1,20 @@
+import { Directive, ElementRef, Input, Renderer2, RendererStyleFlags2 } from '@angular/core';
+
+
+@Directive({ selector: '[show]' })
+export class ShowDirective {
+    constructor(
+        private el: ElementRef,
+        private renderer: Renderer2
+    ) { }
+
+    @Input()
+    set show(value: any) {
+        if (value) {
+            this.renderer.removeStyle(this.el.nativeElement, 'display');
+        }
+        else {
+            this.renderer.setStyle(this.el.nativeElement, 'display', 'none', RendererStyleFlags2.Important);
+        }
+    }
+}

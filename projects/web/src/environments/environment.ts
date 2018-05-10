@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production : false,
+  type : 'dev',
+  APIServer : 'http://192.168.1.2:61547',
+  uploadedFilesPath : 'http://192.168.1.2:61547/uploadedFiles'
 };
 
 /*

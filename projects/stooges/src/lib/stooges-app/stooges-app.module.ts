@@ -1,11 +1,11 @@
-import { UPLOADED_PATH_CONFIG, UploadedPathConfig } from '../common';
+import { UPLOADED_PATH_CONFIG, UploadedPathConfig } from '../common/services/uploaded-path-config';
+import { TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from '../common/services/title-meta-description-config';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { StoogesAppComponent } from './stooges-app.component';
 import { YoutubeLoadingComponent } from './youtube-loading/youtube-loading.component';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { StoogesHammerGestureConfig } from './hammer-config';
 import { StoogesAppSetupData } from './StoogesAppSetupData';
-import { TITLE_META_DESCRIPTION_CONFIG, TitleMetaDescriptionConfig } from '../common';
 
 @NgModule({
   imports: [],

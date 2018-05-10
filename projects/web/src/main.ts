@@ -5,6 +5,7 @@ import 'hammer-timejs';
 import { setupExtension } from '@stooges';
 setupExtension();
 
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
