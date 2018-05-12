@@ -3,7 +3,7 @@ import { Constructor } from '../../types';
 
 // provide in root
 export class EntityConfig {
-    constructor(data: Partial<EntityConfig>) {
+    constructor(data: EntityConfig) {
         Object.assign(this, data);
     }
     entities: { [className: string]: Constructor };

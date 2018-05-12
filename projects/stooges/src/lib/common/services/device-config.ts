@@ -3,7 +3,7 @@ import { Device } from "../../types";
 
 // provide in root
 export class DeviceConfig {
-    constructor(data?: Partial<DeviceConfig>) {
+    constructor(data?: DeviceConfig) {
         Object.assign(this, data);
     }
     breakpoints: { device: Device, mediaQuery: string }[] = [

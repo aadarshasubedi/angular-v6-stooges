@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 
 // provide in root
 export class APIServerConfig {
-    constructor(data: Partial<APIServerConfig>) {
+    constructor(data: APIServerConfig) {
         Object.assign(this, data);
     }
     path: string

@@ -6,6 +6,6 @@ export class PatternMetadata {
 }
 export function Pattern(pattern: string | RegExp) {
     return Reflect.metadata('Pattern', new PatternMetadata({
-        pattern: pattern
+        pattern
     }));
 }

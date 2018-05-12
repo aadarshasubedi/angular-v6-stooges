@@ -1,3 +1,5 @@
+
+
 export class FileMetadata {
     constructor(data?: Partial<FileMetadata>) {
         Object.assign(this, data);

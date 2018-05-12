@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 
 // provide in root
 export class TitleMetaDescriptionConfig {
-    constructor(data: Partial<TitleMetaDescriptionConfig>) {
+    constructor(data: TitleMetaDescriptionConfig) {
         Object.assign(this, data);
     }
     titleSuffix: string

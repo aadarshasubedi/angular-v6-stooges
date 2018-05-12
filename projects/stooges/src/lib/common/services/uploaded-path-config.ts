@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 
 // provide in root
 export class UploadedPathConfig {
-    constructor(data: Partial<UploadedPathConfig>) {
+    constructor(data: UploadedPathConfig) {
         Object.assign(this, data);
     }
     uploadedFilesPath: string

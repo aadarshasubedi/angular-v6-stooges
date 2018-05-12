@@ -1,3 +1,4 @@
+import { CompareType } from "../types";
 
 export class CompareMetadata {
     linkTo: string
