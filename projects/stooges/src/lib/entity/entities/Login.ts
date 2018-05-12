@@ -1,6 +1,8 @@
-import { Resource, Type, ForeignKey } from '../decorators';
 import { User } from './User';
 import { forwardRef } from '@angular/core';
+import { Type } from '../../decorators/Type';
+import { ForeignKey } from '../../decorators/ForeignKey';
+import { Resource } from '../../decorators/Resource';
 
 export class Login {
 

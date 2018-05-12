@@ -1,4 +1,5 @@
-import { Type, Key } from "../decorators";
+import { Key } from "../../decorators/Key";
+import { Type } from "../../decorators/Type";
 
 export class Role
 {

@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { Constructor } from '../types';
+import { Constructor } from '../../types';
 
 // provide in root
 export class EntityConfig {

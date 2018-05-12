@@ -26,8 +26,15 @@ export { SafeStylePipe } from './lib/common/pipes/safe-style.pipe';
 export { SafeUrlPipe } from './lib/common/pipes/safe-url.pipe';
 export { YoutubeCodePipe } from './lib/common/pipes/youtube-code.pipe';
 
+export { EntityModule } from './lib/entity/entity.module';
+export { EGroupDirective } from './lib/entity/directives/e-group.directive';
+export { EGroupNameDirective } from './lib/entity/directives/e-group-name.directive';
 
-
+export { FormModule } from './lib/form/form.module';
+export { ErrorsComponent } from './lib/form/components/errors/errors.component';
+export { PasswordEyeComponent } from './lib/form/components/password-eye/password-eye.component';
+export { InvalidFocusDirective } from './lib/form/directives/invalid-focus.directive';
+export { SubmitableFormDirective } from './lib/form/directives/submitable-form.directive';
 
 
 // //  stooges-app

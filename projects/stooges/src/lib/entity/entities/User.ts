@@ -1,9 +1,13 @@
-import { Resources, Roles, Key, Type, Email } from '../decorators';
 import { Character } from './Character';
 import { Claim } from './Claim';
 import { Login } from './Login';
 import { Role } from './Role';
 import { forwardRef } from '@angular/core';
+import { Key } from '../../decorators/Key';
+import { Email } from '../../decorators/Email';
+import { Type } from '../../decorators/Type';
+import { Resources } from '../../decorators/Resources';
+import { Roles } from '../../decorators/Roles';
 
 
 export class User {

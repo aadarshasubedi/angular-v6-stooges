@@ -1,4 +1,5 @@
-import { Key, Type } from "../decorators";
+import { Key } from "../../decorators/Key";
+import { Type } from "../../decorators/Type";
 
 export class Claim {
     

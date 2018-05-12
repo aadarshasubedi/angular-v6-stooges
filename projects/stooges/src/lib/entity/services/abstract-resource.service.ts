@@ -2,12 +2,12 @@ import { map } from 'rxjs/operators';
 import { EntityConfig } from './entity-config';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 
-import { HttpWatcher } from '../http/http-watcher.service';
+import { HttpWatcher } from '../../http/http-watcher.service';
 import { EntityService } from './entity.service';
-import { Entity, QueryParams, QueryParamsFnValue, ResourceStream, Constructor } from '../types';
-import { toNgHttpParams } from '../common/methods/to-ng-http-params';
+import { Entity, QueryParams, QueryParamsFnValue, ResourceStream, Constructor } from '../../types';
+import { toNgHttpParams } from '../../common/methods/to-ng-http-params';
  
-export abstract class ResourceService<T extends Entity> {
+export abstract class AbstractResourceService<T extends Entity> {
 
     constructor(
         protected http: HttpClient,

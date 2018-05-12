@@ -1,6 +1,8 @@
-import { Resource, Key, ForeignKey } from '../decorators';
 import { User } from './User';
 import { forwardRef } from '@angular/core';
+import { Key } from '../../decorators/Key';
+import { ForeignKey } from '../../decorators/ForeignKey';
+import { Resource } from '../../decorators/Resource';
 
 
 export abstract class Character {

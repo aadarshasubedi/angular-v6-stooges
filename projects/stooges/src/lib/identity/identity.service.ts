@@ -1,10 +1,9 @@
+import { EntityService } from './../entity/services/entity.service';
 import { pairwise, filter, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
-import { EntityService } from '../entity/entity.service';
-import { User } from '../entity/User/User';
 import { HttpInterceptor } from '../http/http-interceptor.service';
 import { HttpWatcher } from '../http/http-watcher.service';
 import { IdentityConfig, IDENTITY_CONFIG } from './identity-config';
@@ -12,6 +11,7 @@ import { AlertService } from '../common/services/alert.service';
 import { ResourceStream } from '../types';
 import { timespan } from '../common/methods/timespan';
 import { toNgHttpParams } from '../common/methods/to-ng-http-params';
+import { User } from '../entity/entities/User';
 
 
 /*

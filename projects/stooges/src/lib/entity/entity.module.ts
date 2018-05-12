@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { FGroupDirective } from './directives/f-group.directive';
-import { FGroupNameDirective } from './directives/f-group-name.directive';
+import { EGroupDirective } from './directives/e-group.directive';
+import { EGroupNameDirective } from './directives/e-group-name.directive';
 
 /*
   note :
@@ -13,12 +13,12 @@ import { FGroupNameDirective } from './directives/f-group-name.directive';
 @NgModule({
   imports: [],
   exports: [
-    FGroupDirective,
-    FGroupNameDirective
+    EGroupDirective,
+    EGroupNameDirective
   ],
   declarations: [
-    FGroupDirective,
-    FGroupNameDirective
+    EGroupDirective,
+    EGroupNameDirective
   ]
 })
 export class EntityModule { }
