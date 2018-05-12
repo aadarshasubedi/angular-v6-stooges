@@ -36,6 +36,10 @@ export { PasswordEyeComponent } from './lib/form/components/password-eye/passwor
 export { InvalidFocusDirective } from './lib/form/directives/invalid-focus.directive';
 export { SubmitableFormDirective } from './lib/form/directives/submitable-form.directive';
 
+export { FacebookModule } from './lib/facebook/facebook.module';
+export { FacebookLoginComponent } from './lib/facebook/facebook-login/facebook-login.component';
+export { FacebookPageComponent } from './lib/facebook/facebook-page/facebook-page.component';
+
 
 // //  stooges-app
 // export { StoogesAppModule } from './lib/stooges-app/stooges-app.module';
