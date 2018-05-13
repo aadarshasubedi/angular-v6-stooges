@@ -32,7 +32,6 @@ export { EGroupNameDirective } from './lib/entity/directives/e-group-name.direct
 
 export { FormModule } from './lib/form/form.module';
 export { ErrorsComponent } from './lib/form/components/errors/errors.component';
-export { PasswordEyeComponent } from './lib/form/components/password-eye/password-eye.component';
 export { InvalidFocusDirective } from './lib/form/directives/invalid-focus.directive';
 export { SubmitableFormDirective } from './lib/form/directives/submitable-form.directive';
 

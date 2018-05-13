@@ -1,4 +1,3 @@
-import { PasswordEyeComponent } from './components/password-eye/password-eye.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule as NgFormsModule } from '@angular/forms';
 
@@ -17,14 +16,12 @@ import { SubmitableFormDirective } from './directives/submitable-form.directive'
         ReactiveFormsModule,
         ErrorsComponent,
         InvalidFocusDirective,
-        SubmitableFormDirective,
-        PasswordEyeComponent
+        SubmitableFormDirective
     ],
     declarations: [
         ErrorsComponent,
         InvalidFocusDirective,
-        SubmitableFormDirective,
-        PasswordEyeComponent
+        SubmitableFormDirective
     ],
     providers: []
 })

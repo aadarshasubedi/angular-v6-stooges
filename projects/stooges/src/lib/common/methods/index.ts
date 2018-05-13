@@ -29,3 +29,4 @@ export * from './to-odata-special-character';
 export * from './timespan';
 export * from './range';
 export * from './to-ng-http-params';
+export * from './create-and-append-script';
