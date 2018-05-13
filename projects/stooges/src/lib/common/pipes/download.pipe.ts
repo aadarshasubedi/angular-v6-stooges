@@ -1,4 +1,4 @@
-import { APIServerConfig } from './../services/api-server-config';
+import { APIServerConfig } from '../services/api-server-config';
 import { API_SERVER_CONFIG } from '../services/api-server-config';
 import { Pipe, PipeTransform, Inject } from '@angular/core';
 import { UploadedPathService } from '../services/uploaded-path.service';

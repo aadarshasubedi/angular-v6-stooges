@@ -12,3 +12,6 @@ export * from './entity';
 export * from './form';
 export * from './language';
 export * from './facebook';
+export * from './wujiakegui';
+export * from './router';
+export * from './payment';

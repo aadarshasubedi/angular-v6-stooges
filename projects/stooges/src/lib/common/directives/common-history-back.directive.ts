@@ -1,12 +1,12 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-    selector: '[sHistoryBack]',
+    selector: '[sCommonHistoryBack]',
     host: {
         '(click)': 'historyBack()'
     }
 })
-export class HistoryBackDirective {
+export class CommonHistoryBackDirective {
 
     constructor() { }
 

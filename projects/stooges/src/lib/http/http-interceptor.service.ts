@@ -1,4 +1,4 @@
-import { API_SERVER_CONFIG, APIServerConfig } from './../common/services/api-server-config';
+import { API_SERVER_CONFIG, APIServerConfig } from '../common/services/api-server-config';
 import {
     HttpErrorResponse,
     HttpEvent,

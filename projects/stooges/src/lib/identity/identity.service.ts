@@ -1,4 +1,4 @@
-import { EntityService } from './../entity/services/entity.service';
+import { EntityService } from '../entity/services/entity.service';
 import { pairwise, filter, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';

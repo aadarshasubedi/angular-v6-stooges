@@ -7,11 +7,14 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { StoogesHammerGestureConfig } from './hammer-config';
 import { HttpModule } from '../http/http.module';
 
+// note : 只用于 AppModule import 其它地方不要用
 @NgModule({
   imports: [
     HttpModule
   ],
-  exports: [StoogesAppComponent],
+  exports: [
+    StoogesAppComponent
+  ],
   declarations: [
     StoogesAppComponent,
     YoutubeLoadingComponent
