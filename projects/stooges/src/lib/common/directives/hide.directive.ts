@@ -11,7 +11,7 @@ export class HideDirective {
     ) { }
 
     @Input()
-    set hide(value: any) {
+    set sHide(value: any) {
         if (value) {
             this.renderer.setStyle(this.el.nativeElement, 'display', 'none', RendererStyleFlags2.Important);
         }

@@ -2,6 +2,11 @@
   home works!
 </p>
 
-<textarea sAutoResize >dada</textarea>
+<!-- <textarea sAutoResize>dada</textarea> -->
 
-<div *sDeviceOnly="['pc','tablet']" >pc only</div>
+<!-- <div *sDeviceOnly="['pc','tablet']">pc only</div> -->
+
+<div (click)="showFacebookPage = !showFacebookPage">toggle page book page</div>
+
+<s-facebook-page *ngIf="showFacebookPage"></s-facebook-page>
+

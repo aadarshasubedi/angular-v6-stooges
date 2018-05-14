@@ -1,6 +1,7 @@
-import { FacebookService } from '../facebook.service';
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Inject } from '@angular/core';
-import { FacebookConfig, FACEBOOK_CONFIG } from '../facebook-config';
+ 
+
+import { FacebookService } from './facebook.service';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 declare let FB: any;
 
@@ -13,15 +14,12 @@ declare let FB: any;
 export class FacebookPageComponent implements OnInit, AfterViewInit {
 
   constructor(
-    private facebookService: FacebookService,
-    @Inject(FACEBOOK_CONFIG) private config: FacebookConfig
+    private facebookService: FacebookService
   ) { }
-  
+
   ngOnInit() {
 
   }
-
-  pageName = this.config.pageName;
 
   async ngAfterViewInit() {
     const firstLoad = await this.facebookService.loadScriptAsync();

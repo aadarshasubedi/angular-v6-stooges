@@ -11,7 +11,7 @@ export class ShowDirective {
     ) { }
 
     @Input()
-    set show(value: any) {
+    set sShow(value: any) {
         if (value) {
             this.renderer.removeStyle(this.el.nativeElement, 'display');
         }

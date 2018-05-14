@@ -1,4 +1,4 @@
-import { RouteData } from '@stooges';
+// import { RouteData } from '@stooges';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -8,11 +8,11 @@ import { RouterModule } from '@angular/router';
     {
       path: '',
       component: HomeComponent,
-      data: new RouteData({
-        title: 'Home',
-        metaDescription: 'Home description',
-        robotsRule: { self: 'noindex, nofollow', children: 'noindex, nofollow' }
-      })
+      // data: new RouteData({
+      //   title: 'Home',
+      //   metaDescription: 'Home description',
+      //   robotsRule: { self: 'noindex, nofollow', children: 'noindex, nofollow' }
+      // })
     }
   ])],
   exports: [RouterModule]

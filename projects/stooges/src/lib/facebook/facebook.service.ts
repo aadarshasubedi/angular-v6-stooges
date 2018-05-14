@@ -14,14 +14,11 @@ export class FacebookService {
   ) { }
 
 
-  private loadScriptPromise: Promise<boolean>;
-  private donePromise = new Promise<boolean>((resolve) => {
-    resolve(false);
-  });
+  private loadScriptPromise: Promise<boolean>; 
   private scriptDone = false;
-
+  
   async loadScriptAsync() : Promise<boolean> {
-    if (this.scriptDone) return this.donePromise;
+    if (this.scriptDone) return Promise.resolve(false);
     if (this.loadScriptPromise) return this.loadScriptPromise;
     this.loadScriptPromise = new Promise<boolean>((resolve) => {
       window['fbAsyncInit'] = () => {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { FacebookService } from '../facebook.service';
 
@@ -8,18 +8,22 @@ import { FacebookService } from '../facebook.service';
   styleUrls: ['./facebook-login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FacebookLoginComponent implements OnInit {
+export class FacebookLoginComponent implements OnInit, AfterViewInit {
 
   constructor(
     private facebookService: FacebookService,
     private cdr: ChangeDetectorRef
   ) { }
 
-  ready = false;
+  public ready = false;
 
-  async ngOnInit() {
+  async ngAfterViewInit() {
     await this.facebookService.loadScriptAsync();
     this.ready = true;
     this.cdr.markForCheck();
+  }
+
+  ngOnInit() {
+
   }
 }

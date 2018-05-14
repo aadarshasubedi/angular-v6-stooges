@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import 'hammerjs';
 import 'hammer-timejs';
 
-import { setupExtension } from '@stooges';
-setupExtension();
+// import { setupExtension } from '@stooges';
+// setupExtension();
 
 
 import { enableProdMode } from '@angular/core';

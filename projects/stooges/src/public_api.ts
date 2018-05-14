@@ -35,8 +35,9 @@ export { ErrorsComponent } from './lib/form/components/errors/errors.component';
 export { InvalidFocusDirective } from './lib/form/directives/invalid-focus.directive';
 export { SubmitableFormDirective } from './lib/form/directives/submitable-form.directive';
 
-export { FacebookModule } from './lib/facebook/facebook.module';
+export { FacebookLoginModule } from './lib/facebook/facebook-login/facebook-login.module';
 export { FacebookLoginComponent } from './lib/facebook/facebook-login/facebook-login.component';
+export { FacebookPageModule } from './lib/facebook/facebook-page/facebook-page.module';
 export { FacebookPageComponent } from './lib/facebook/facebook-page/facebook-page.component';
 
 export { AgoModule } from './lib/wujiakegui/ago/ago.module';
@@ -53,7 +54,8 @@ export { RouterOutletComponent } from './lib/router/s-router-outlet/s-router-out
 export { PaypalModule } from './lib/payment/paypal/paypal.module';
 export { PaypalFormComponent } from './lib/payment/paypal/paypal-form/paypal-form.component';
 
- 
+export { OverlayModule } from './lib/ui-components/overlay/overlay.module';
+export { OverlayFrameComponent } from './lib/ui-components/overlay/overlay-frame/overlay-frame.component';
 
  
 

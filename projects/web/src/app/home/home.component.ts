@@ -1,24 +1,21 @@
-import { TitleMetaDescriptionService } from '@stooges';
-import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+// import { TitleMetaDescriptionService } from '@stooges';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   constructor(
-    private titleMetaDescriptionService: TitleMetaDescriptionService,
+    // private titleMetaDescriptionService: TitleMetaDescriptionService,
   ) {
 
   }
-
-  ngAfterViewInit() {
-
-     
-  }
-
+  
+  showFacebookPage = false;
+ 
   dada: {
     name: string
   } = {
@@ -28,10 +25,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.titleMetaDescriptionService.update({
-      title: 'New Home',
-      metaDescription: 'New Home Description'
-    });
+    // this.titleMetaDescriptionService.update({
+    //   title: 'New Home',
+    //   metaDescription: 'New Home Description'
+    // });
   }
 
 }
