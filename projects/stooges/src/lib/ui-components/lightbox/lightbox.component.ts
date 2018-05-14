@@ -1,15 +1,14 @@
 import { filter, map } from 'rxjs/operators';
 import { merge } from 'rxjs';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input, ViewChild, TemplateRef, ViewContainerRef, ViewChildren, QueryList } from '@angular/core';
-import { OverlayFrameComponent } from '../../../modules/ui-components/overlay/overlay-frame/overlay-frame.component';
 import { OverlayRef, OverlayConfig, Overlay, OverlaySizeConfig } from '@angular/cdk/overlay';
-import { ImageService } from '../../../modules/common/services/image.service';
-import { Image } from '../../../stooges/models/Image';
-import { Dimension } from '../../../stooges/types';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { KeyCode } from '../../../stooges/stooges';
-import { SSliderComponent } from '../../../modules/ui-components/s-slider/s-slider.component';
-import { SZoomComponent } from '../../../modules/ui-components/s-zoom/s-zoom.component';
+import { ImageService } from '../../common/services/image.service';
+import { OverlayFrameComponent } from '../overlay/overlay-frame/overlay-frame.component';
+import { SliderComponent } from '../slider/slider.component';
+import { ZoomComponent } from '../zoom/zoom.component';
+import { Image } from '../../models/Image';
+import { KeyCode, Dimension } from '../../types';
 
 
 /*
@@ -20,11 +19,11 @@ import { SZoomComponent } from '../../../modules/ui-components/s-zoom/s-zoom.com
 
 @Component({
   selector: 's-lightbox',
-  templateUrl: './s-lightbox.component.html',
-  styleUrls: ['./s-lightbox.component.scss'],
+  templateUrl: './lightbox.component.html',
+  styleUrls: ['./lightbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SLightboxComponent implements OnInit {
+export class LightboxComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -50,15 +49,15 @@ export class SLightboxComponent implements OnInit {
   @ViewChild('overlayFrame', { read: OverlayFrameComponent })
   overlayFrame: OverlayFrameComponent;
 
-  @ViewChild('slider', { read: SSliderComponent })
-  slider: SSliderComponent;
+  @ViewChild('slider', { read: SliderComponent })
+  slider: SliderComponent;
 
   @ViewChild('overlayContainer', { read: ViewContainerRef })
   overlayContainer: ViewContainerRef;
 
 
-  @ViewChildren(SZoomComponent)
-  zoomQueryList: QueryList<SZoomComponent>;
+  @ViewChildren(ZoomComponent)
+  zoomQueryList: QueryList<ZoomComponent>;
 
   private overlayRef: OverlayRef | null;
 

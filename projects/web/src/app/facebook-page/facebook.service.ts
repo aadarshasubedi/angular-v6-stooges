@@ -10,23 +10,16 @@ export class FacebookService {
   constructor() { }
 
   private loadScriptPromise: Promise<boolean>;
-  private donePromise = new Promise<boolean>((resolve) => {
-    resolve(false);
-  });
-  private scriptDone = false;
-
   async loadScriptAsync(): Promise<boolean> {
-    if (this.scriptDone) return this.donePromise;
     if (this.loadScriptPromise) return this.loadScriptPromise;
     this.loadScriptPromise = new Promise<boolean>((resolve) => {
       window['fbAsyncInit'] = () => {
         FB.init({
-          appId: '247179212471500',
+          appId: '1695485187203209',
           cookie: true,
           xfbml: true,
-          version: 'v2.10'
+          version: 'v3.0'
         });
-        this.scriptDone = true;
         resolve(true);
       };
       const script = document.createElement('script');

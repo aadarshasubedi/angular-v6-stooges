@@ -21,11 +21,11 @@ import { HammerService } from '../../common/services/hammer.service';
 
 @Component({
   selector: 's-slider',
-  templateUrl: './s-slider.component.html',
-  styleUrls: ['./s-slider.component.scss'],
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SSliderComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private cdr: ChangeDetectorRef,

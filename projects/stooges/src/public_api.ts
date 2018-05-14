@@ -35,8 +35,6 @@ export { ErrorsComponent } from './lib/form/components/errors/errors.component';
 export { InvalidFocusDirective } from './lib/form/directives/invalid-focus.directive';
 export { SubmitableFormDirective } from './lib/form/directives/submitable-form.directive';
 
-export { FacebookLoginModule } from './lib/facebook/facebook-login/facebook-login.module';
-export { FacebookLoginComponent } from './lib/facebook/facebook-login/facebook-login.component';
 export { FacebookPageModule } from './lib/facebook/facebook-page/facebook-page.module';
 export { FacebookPageComponent } from './lib/facebook/facebook-page/facebook-page.component';
 
@@ -57,7 +55,11 @@ export { PaypalFormComponent } from './lib/payment/paypal/paypal-form/paypal-for
 export { OverlayModule } from './lib/ui-components/overlay/overlay.module';
 export { OverlayFrameComponent } from './lib/ui-components/overlay/overlay-frame/overlay-frame.component';
 
- 
+export { LightboxModule } from './lib/ui-components/lightbox/lightbox.module';
+export { LightboxComponent } from './lib/ui-components/lightbox/lightbox.component';
+export { LightboxDeepStyleComponent } from './lib/ui-components/lightbox/lightbox-deep-style/lightbox-deep-style.component';
 
+export { GoogleMapModule } from './lib/google/google-map/google-map.module';
+export { GoogleMapComponent } from './lib/google/google-map/google-map.component';
 
 

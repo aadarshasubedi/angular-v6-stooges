@@ -12,15 +12,12 @@ export class FacebookService {
   constructor(
     @Inject(FACEBOOK_CONFIG) private config: FacebookConfig
   ) { }
-
-
-  private loadScriptPromise: Promise<boolean>; 
-  private scriptDone = false;
+ 
+  private loadScriptPromise: Promise<void>; 
   
-  async loadScriptAsync() : Promise<boolean> {
-    if (this.scriptDone) return Promise.resolve(false);
+  async loadScriptAsync() : Promise<void> {
     if (this.loadScriptPromise) return this.loadScriptPromise;
-    this.loadScriptPromise = new Promise<boolean>((resolve) => {
+    this.loadScriptPromise = new Promise<void>((resolve) => {
       window['fbAsyncInit'] = () => {
         FB.init({
           appId: this.config.appId,
@@ -28,8 +25,7 @@ export class FacebookService {
           xfbml: true,
           version: this.config.version
         });
-        this.scriptDone = true;
-        resolve(true);
+        resolve();
       };
       createAndAppendScript('//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk'); //如果用了 FB.init 这里请求的 script 就不要放 #appId=123 之类的, 不然会有 Bug
     });
@@ -40,6 +36,7 @@ export class FacebookService {
    * @description Error<string> 'cancel' | 'notAllowEmail' | 'noEmail'
    */
   async loginAsync(): Promise<string> {
+    await this.loadScriptAsync();
     return new Promise<string>((resolve, reject) => {
       FB.login((responseLogin: any) => {
         //response = {

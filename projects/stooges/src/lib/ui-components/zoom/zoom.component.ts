@@ -1,15 +1,14 @@
-import { ImageService } from './../../../modules/common/services/image.service';
 import {
   Component, OnInit, ChangeDetectionStrategy, Input,
-  AfterViewInit, ElementRef, ChangeDetectorRef, Optional, ViewChild
+  AfterViewInit, ElementRef, ChangeDetectorRef, Optional, ViewChild, OnDestroy
 } from '@angular/core';
-import { ObjectFix, XY } from '../../../stooges/types';
-import { SSliderComponent } from '../s-slider/s-slider.component';
+import { SliderComponent } from '../slider/slider.component';
 import { SubscriptionLike as ISubscription } from 'rxjs';
-import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { HammerService } from '../../common/services/hammer.service';
-import { stooges } from '../../../stooges/stooges';
-import { PropagatingHammerInput } from '../../common/hammer-config';
+import { ImageService } from '../../common/services/image.service';
+import { ObjectFix, XY } from '../../types';
+import { PropagatingHammerInput } from '../../stooges-app/hammer-config';
+import { range } from '../../common/methods/range';
 
 /*
   note :
@@ -27,18 +26,18 @@ export interface ZoomData {
 
 @Component({
   selector: 's-zoom',
-  templateUrl: './s-zoom.component.html',
-  styleUrls: ['./s-zoom.component.scss'],
+  templateUrl: './zoom.component.html',
+  styleUrls: ['./zoom.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SZoomComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ZoomComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private hostEL: ElementRef,
     private imageService: ImageService,
     private cdr: ChangeDetectorRef,
     private hammerService: HammerService,
-    @Optional() private parentSlider?: SSliderComponent
+    @Optional() private parentSlider?: SliderComponent
   ) { }
 
   @Input()
@@ -48,7 +47,7 @@ export class SZoomComponent implements OnInit, AfterViewInit, OnDestroy {
   transformFrameHeight: number;
 
   @Input()
-  maxScale = 1; 
+  maxScale = 1;
 
   @Input()
   objectFit: ObjectFix | null;
@@ -57,13 +56,13 @@ export class SZoomComponent implements OnInit, AfterViewInit, OnDestroy {
   defaultScaleMode: 'min' | 'pinchable' = 'min';
 
   public defaultScale: number
-  private defaultTraslateX : number
-  private defaultTraslateY : number
+  private defaultTraslateX: number
+  private defaultTraslateY: number
 
   public resetToDefaultScale() {
     this.currentScale = this.defaultScale;
-    this.traslateX =this.defaultTraslateX;
-    this.traslateY =this.defaultTraslateY;
+    this.traslateX = this.defaultTraslateX;
+    this.traslateY = this.defaultTraslateY;
     this.cdr.markForCheck();
   }
 
@@ -191,7 +190,7 @@ export class SZoomComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
   pinchEnd() {
-     this.pinchEndRecordTime = new Date();
+    this.pinchEndRecordTime = new Date();
   }
   /* end */
 
@@ -268,7 +267,7 @@ export class SZoomComponent implements OnInit, AfterViewInit, OnDestroy {
     const zoomCount = Math.round(scaleAbleWidth / eachZoom) || 1; // round adjust, 但是 0 不行，最少是 1.
     const eachZoomScaleInPx = scaleAbleWidth / zoomCount;
 
-    const nextTargets = stooges.range(0, zoomCount).map((_v, i) => {
+    const nextTargets = range(0, zoomCount).map((_v, i) => {
       return minTransformFrameWidth + ((i + 1) * eachZoomScaleInPx);
     });
     const nextTarget = nextTargets.filter(nextTarget => nextTarget > Math.ceil(this.transformFrameWidthAfterScale))[0];

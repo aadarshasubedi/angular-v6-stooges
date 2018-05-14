@@ -36,12 +36,12 @@
             <div class="text">{{ data[titleKey] }}</div>
           </div>        
         </s-slider>      
-        <div [hide]="slider.page == 0"
+        <div [sHide]="slider.page == 0"
           (click)="slider.prev()"
           class="leftNav">
           <i class="fa fa-angle-left"></i>
         </div>
-        <div [hide]="slider.page == datas.length - 1"
+        <div [sHide]="slider.page == datas.length - 1"
           (click)="slider.next()"
           class="rightNav">
           <i class="fa fa-angle-right"></i>
