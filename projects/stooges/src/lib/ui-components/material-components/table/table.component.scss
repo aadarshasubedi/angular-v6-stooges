@@ -1,0 +1,63 @@
+@import 'mixin';
+@import '~@angular/material/theming';
+@import 'theme';
+@import 'variables-admin';
+
+
+.image{
+    width:84px;
+    margin:15px 0;
+}
+
+.dragColumn{
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    flex: 0 0 32px !important;
+    text-align: center;
+    cursor: move;
+    &:hover {
+        color: mat-color(map-get(getTheme(), primary), default);
+    }
+}
+.mat-row{
+    &.onDrag{
+        background: mat-color(map-get(getTheme(), primary), default, 0.2);
+    }
+}
+.TickColumn{
+    .mat-icon{
+        color:green;
+    }
+}
+
+.FileColumn,
+.editColumn{
+    flex: 0 0 32px !important;
+    text-align: center;
+}
+.removeColumn{
+    flex: 0 0 44px !important;
+    text-align: center;
+}
+
+.mat-column-Id.TextColumn{
+    flex: 0 0 32px !important;
+}
+
+.ImageColumn{
+    flex: 0 0 100px !important;
+}
+
+//等看到资料再改大小
+.TickColumn,
+.YoutubeColumn,
+.TextColumn,
+.TextareaColumn,
+.AmountColumn,
+.DateColumn,
+.DatetimeColumn,
+.TimeColumn,
+.EnumColumn{
+    flex: 1 0 100px !important;
+}

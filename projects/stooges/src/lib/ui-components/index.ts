@@ -5,3 +5,4 @@ export * from './material-components';
 export * from './overlay';
 export * from './slider';
 export * from './zoom';
+export * from './table';

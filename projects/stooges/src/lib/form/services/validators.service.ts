@@ -15,6 +15,16 @@ export class ValidatorsService {
   private isEmptyInputValue(value: any) {
     return value == null || ((typeof value === 'string') && value.length === 0) || Array.isArray(value) && value.length === 0;
   }
+
+  matchWithString(targetString: string, caseSensitive = true): ValidatorFn {
+    return (control: AbstractControl) => {
+      const value = control.value as string;
+      const ok = this.isEmptyInputValue(value) || ((caseSensitive) ? value === targetString : value.lowerCaseEqual(targetString));
+      return (ok) ? null : {
+        matchWithString: 'not match'
+      };
+    };
+  }
   
   required(): ValidatorFn {
     return (control: AbstractControl) => {

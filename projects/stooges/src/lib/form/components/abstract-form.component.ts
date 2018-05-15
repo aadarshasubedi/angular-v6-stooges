@@ -4,8 +4,8 @@ import { FormArray, FormControl, FormGroup, FormGroupDirective } from '@angular/
 import { combineLatest } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 
-import { AbstractAccessorComponent } from '../material/abstract-accessor';
 import { InvalidFocus } from '../types';
+import { AbstractAccessorComponent } from './abstract-accessor';
 
 /*
   目前 form 体验有 3 个问题, 都是跟操作 dom 有关的, 目前 no angular way to fix
