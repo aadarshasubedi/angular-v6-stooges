@@ -1,6 +1,6 @@
 import { GoogleLoginConfig, GOOGLE_LOGIN_CONFIG } from './google-login-config';
 import { Inject, Injectable } from '@angular/core';
-import { createAndAppendScript } from '../../common/methods/create-and-append-script';
+import { createAndAppendScriptAsync } from '../../common/methods/create-and-append-script';
 
 declare let gapi: any;
 
@@ -48,7 +48,7 @@ export class GoogleLoginService {
           });
         });
       };
-      createAndAppendScript('https://apis.google.com/js/api:client.js?onload=googleLoginInit'); 
+      createAndAppendScriptAsync('https://apis.google.com/js/api:client.js?onload=googleLoginInit'); 
     });
     return this.loadScriptPromise;
   }

@@ -102,7 +102,9 @@ interface DeviceRetina {
   maxRetina: number
 }
 
-@Injectable()
+@Injectable({
+  providedIn : 'root'
+})
 export class ImageService {
 
   constructor(

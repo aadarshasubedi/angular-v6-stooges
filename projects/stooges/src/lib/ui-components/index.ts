@@ -1,4 +1,4 @@
-export * from './abstract-pagination/abstract-pagination.component';
+export * from './abstract-pagination';
 export * from './accessors';
 export * from './lightbox';
 export * from './material-components';

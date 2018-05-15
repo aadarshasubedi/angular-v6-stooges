@@ -1,6 +1,6 @@
 import { FacebookConfig, FACEBOOK_CONFIG } from './facebook-config';
 import { Inject, Injectable } from '@angular/core';
-import { createAndAppendScript } from '../common/methods/create-and-append-script';
+import { createAndAppendScriptAsync } from '../common/methods/create-and-append-script';
 
 declare let FB: any;
 
@@ -27,7 +27,7 @@ export class FacebookService {
         });
         resolve();
       };
-      createAndAppendScript('//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk'); //如果用了 FB.init 这里请求的 script 就不要放 #appId=123 之类的, 不然会有 Bug
+      createAndAppendScriptAsync('//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk'); //如果用了 FB.init 这里请求的 script 就不要放 #appId=123 之类的, 不然会有 Bug
     });
     return this.loadScriptPromise;
   }

@@ -1,7 +1,7 @@
 import { LanguageService } from '../../language/language.service';
 import { GoogleMapConfig, GOOGLE_MAP_CONFIG } from './google-map-config';
 import { Inject, Injectable } from '@angular/core';
-import { createAndAppendScript } from '../../common/methods/create-and-append-script';
+import { createAndAppendScriptAsync } from '../../common/methods/create-and-append-script';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class GoogleMapService {
         'en-US': 'en',
         'zh': 'zh-CN'
       });
-      createAndAppendScript(`https://maps.googleapis.com/maps/api/js?key=${this.config.apiKey}&callback=googleMapInit&language=${language}`);
+      createAndAppendScriptAsync(`https://maps.googleapis.com/maps/api/js?key=${this.config.apiKey}&callback=googleMapInit&language=${language}`);
     });
     return this.loadScriptPromise;
   }

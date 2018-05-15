@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LanguageService } from '../../language/language.service';
-import { createAndAppendScript } from '../..';
+import { createAndAppendScriptAsync } from '../..';
 
 
 @Injectable({
@@ -25,7 +25,7 @@ export class GoogleRecaptchaService {
         'en-US': 'en',
         'zh': 'zh-CN'
       });
-      createAndAppendScript(`https://www.google.com/recaptcha/api.js?onload=googleRecaptchaInit&render=explicit&hl=${language}`);
+      createAndAppendScriptAsync(`https://www.google.com/recaptcha/api.js?onload=googleRecaptchaInit&render=explicit&hl=${language}`);
     });
     return this.loadScriptPromise;
   }

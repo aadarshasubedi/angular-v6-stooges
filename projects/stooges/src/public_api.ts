@@ -62,4 +62,20 @@ export { LightboxDeepStyleComponent } from './lib/ui-components/lightbox/lightbo
 export { GoogleMapModule } from './lib/google/google-map/google-map.module';
 export { GoogleMapComponent } from './lib/google/google-map/google-map.component';
 
+export { GoogleRecaptchaModule } from './lib/google/google-recaptcha/google-recaptcha.module';
+export { GoogleRecaptchaComponent } from './lib/google/google-recaptcha/google-recaptcha.component';
 
+export { SliderModule } from './lib/ui-components/slider/slider.module';
+export { SliderComponent } from './lib/ui-components/slider/slider.component';
+
+export { ZoomModule } from './lib/ui-components/zoom/zoom.module';
+export { ZoomComponent } from './lib/ui-components/zoom/zoom.component';
+
+export { CkeditorModule } from './lib/ui-components/accessors/ckeditor/ckeditor.module';
+export { CkeditorComponent } from './lib/ui-components/accessors/ckeditor/ckeditor.component';
+
+export { TimePickerModule } from './lib/ui-components/accessors/time-picker/time-picker.module';
+export { TimePickerComponent } from './lib/ui-components/accessors/time-picker/time-picker.component';
+
+export { UploadModule } from './lib/ui-components/accessors/upload/upload.module';
+export { UploadComponent } from './lib/ui-components/accessors/upload/upload.component';
