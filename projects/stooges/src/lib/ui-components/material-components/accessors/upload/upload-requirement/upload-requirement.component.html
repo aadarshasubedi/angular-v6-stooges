@@ -1,0 +1,23 @@
+<span i18n>File invalid, please refer requirement.</span>
+<br/>
+<span *ngIf="fileMetadata.maxSize" >
+    <span i18n>Max size</span> : {{ fileMetadata.maxSize!.toFixed() }} KB
+    <br/>
+</span>
+<span *ngIf="fileMetadata.onlyExtensions" >
+    <span i18n>Only allow extends</span> : {{ fileMetadata.onlyExtensions }}
+    <br/>
+</span>
+<span *ngIf="fileMetadata.exceptExtensions" >
+    <span i18n>Disallow extends</span> : {{ fileMetadata.exceptExtensions }}
+    <br/>
+</span>
+<span *ngIf="imageData && imageData.maxWidthAfterRetinaAndAspectRatio" >
+    <span i18n>Image min width</span> : {{ imageData.maxWidthAfterRetinaAndAspectRatio }} px
+    <br/>
+</span>
+<span *ngIf="imageData && imageData.maxHeightAfterRetinaAndAspectRatio" >
+    <span i18n>Image min height</span> : {{ imageData.maxHeightAfterRetinaAndAspectRatio }} px
+    <br/>
+</span>
+

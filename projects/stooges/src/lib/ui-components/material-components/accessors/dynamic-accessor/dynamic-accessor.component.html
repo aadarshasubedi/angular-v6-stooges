@@ -1,0 +1,74 @@
+<ng-container [ngSwitch]="accessorType">
+  <div class="form">
+    <s-mat-input *ngSwitchCase="'Email'"
+      type="email"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-input>
+
+    <s-mat-input *ngSwitchCase="'LongText'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"
+      class="longTextAccessor"></s-mat-input>
+
+    <s-mat-input *ngSwitchCase="'Password'"
+      type="password"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-input>
+
+    <s-mat-input *ngSwitchCase="'Number'"
+      type="number"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-input>
+
+    <s-mat-input *ngSwitchCase="'Text'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [sUrlTitle]="urlTitle"
+      [displayName]="fControl.displayName"></s-mat-input>
+
+    <s-mat-date-picker *ngSwitchCase="'DatePicker'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-date-picker>
+
+    <s-mat-ckeditor *ngSwitchCase="'Ckeditor'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-ckeditor>
+
+    <s-mat-upload *ngSwitchCase="'Upload'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-upload>
+
+    <s-mat-time-picker *ngSwitchCase="'TimePicker'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-time-picker>
+
+    <s-mat-textarea *ngSwitchCase="'Textarea'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-textarea>
+
+    <s-mat-checkbox *ngSwitchCase="'Checkbox'"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"></s-mat-checkbox>
+
+    <s-mat-simple-select *ngSwitchCase="'SimpleSelect'"
+      [loading]="simpleSelectLoading"
+      [fControl]="fControl"
+      [control]="formControl"
+      [displayName]="fControl.displayName"
+      [multiple]="simpleSelectMultiple"
+      [items]="simpleSelectItems" 
+      [getValue]="simpleSelectGetValue"
+      [getDisplay]="simpleSelectGetDisplay"
+      [compareWith]="simpleSelectCompareWith"></s-mat-simple-select>
+  </div>
+</ng-container>

@@ -82,3 +82,6 @@ export { UploadComponent } from './lib/ui-components/accessors/upload/upload.com
 
 export { MatTableModule } from './lib/ui-components/material-components/table/table.module';
 export { MatTableComponent } from './lib/ui-components/material-components/table/table.component';
+
+export { CheckboxModule } from './lib/ui-components/material-components/accessors/checkbox/checkbox.module';
+export { MatCheckboxComponent } from './lib/ui-components/material-components/accessors/checkbox/checkbox.component';

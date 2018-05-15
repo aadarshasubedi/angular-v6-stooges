@@ -1,0 +1,19 @@
+:host-context(.twoColumn) {
+  width: 50%;
+  float: left;
+}
+
+:host-context(.threeColumn) {
+  width: 33.33%;
+  float: left;
+}
+
+.wrap {
+  padding: 0 8px 25px;
+}
+
+label {
+  font-size: 11px;
+  display: block;
+}
+

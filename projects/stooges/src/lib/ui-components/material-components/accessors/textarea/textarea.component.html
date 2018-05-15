@@ -1,0 +1,16 @@
+<mat-form-field>
+  <textarea #focusable="matInput"
+    matInput
+    matTextareaAutosize
+    matAutosizeMinRows="2"
+    [formControl]="formControl"
+    placeholder="{{ (ui.displayName | translate) + (required ? '*' : '') }}"></textarea>
+  <mat-hint align="start">
+    <s-errors #errors
+      [control]="formControl">
+    </s-errors>
+    <div [hide]="errors.canShow && formControl.invalid">
+      <ng-content></ng-content>
+    </div>
+  </mat-hint>
+</mat-form-field>

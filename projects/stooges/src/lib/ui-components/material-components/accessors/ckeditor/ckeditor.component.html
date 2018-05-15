@@ -1,0 +1,6 @@
+<div class="ck px2"> 
+  <label>{{ (ui.displayName | translate ) + (required ? '*' : '') }}</label>
+  <s-ckeditor #focusable
+    [formControl]="formControl"></s-ckeditor>
+  <s-errors [control]="formControl"></s-errors>
+</div>

@@ -1,0 +1,21 @@
+<div class="relative">
+  <mat-form-field>
+    <mat-select #focusable
+      [multiple]="multiple"
+      [formControl]="formControl"
+      [compareWith]="internalCompareWith"
+      placeholder="{{ ui.displayName + (required ? '*' : '') }}">
+      <mat-option *ngIf="!hidePleaseSelect"
+        i18n
+        [value]="null">Please select</mat-option>
+      <mat-option *ngFor="let item of items"
+        [value]="internalGetValue(item)">
+        {{ internalGetDisplay(item) | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <s-errors [control]="formControl"
+    class="selectHitPosition"></s-errors>
+  <span [show]="loading"
+    class="loading">loading....</span>
+</div>
