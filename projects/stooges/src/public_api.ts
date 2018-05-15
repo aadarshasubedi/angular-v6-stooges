@@ -79,3 +79,6 @@ export { TimePickerComponent } from './lib/ui-components/accessors/time-picker/t
 
 export { UploadModule } from './lib/ui-components/accessors/upload/upload.module';
 export { UploadComponent } from './lib/ui-components/accessors/upload/upload.component';
+
+export { MatTableModule } from './lib/ui-components/material-components/table/table.module';
+export { MatTableComponent } from './lib/ui-components/material-components/table/table.component';

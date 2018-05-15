@@ -1,14 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, TrackByFunction, Output, EventEmitter, AfterContentInit, ContentChildren, QueryList, ViewChild, ChangeDetectorRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable ,  Subscription } from 'rxjs';
 import { SortDirection, MatColumnDef, MatRowDef, MatTable } from '@angular/material';
-import { KeyAndTControl } from '../../ui-components/table/table.service';
-import { stooges } from '../../../stooges/stooges';
-import { Entity } from '../../../stooges/types';
-import { ImageService } from '../../common/services/image.service';
-import { Image } from '../../../stooges/models/Image';
+import { ImageService } from '../../../common/services/image.service';
+import { Entity } from '../../../types';
+import { getByPath } from '../../../common/methods/get-by-path';
+import { Image } from '../../../models/Image';
+import { KeyAndTControl } from '../../table/table.service';
 
 type Resource = Entity;
-export interface GenerateRowNgClassFn<T> {
+export interface MatTableGenerateRowNgClassFn<T> {
   (resource: T, index: number): {
     [propName: string]: boolean
   };
@@ -21,7 +21,7 @@ export interface GenerateRowNgClassFn<T> {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class TableComponent implements OnInit, AfterContentInit, OnDestroy {
+export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -99,9 +99,9 @@ export class TableComponent implements OnInit, AfterContentInit, OnDestroy {
   draggingData: Resource
 
   @Input()
-  generateRowNgClassFn: GenerateRowNgClassFn<Resource>
+  generateRowNgClassFn: MatTableGenerateRowNgClassFn<Resource>
 
-  internalGenerateRowNgClassFn: GenerateRowNgClassFn<Resource> = (resource, index) => {
+  internalGenerateRowNgClassFn: MatTableGenerateRowNgClassFn<Resource> = (resource, index) => {
     let result = {};
     if (this.generateRowNgClassFn) result = {
       ...result,
@@ -121,7 +121,7 @@ export class TableComponent implements OnInit, AfterContentInit, OnDestroy {
   rowDragenterEmitter = new EventEmitter<{ resource: Resource, index: number }>();
 
   getByPath(row: Resource, path: string): any {
-    let value = stooges.getByPath(row, path);
+    let value = getByPath(row, path);
     return Array.isArray(value) ? value[0] : value;
   }
 

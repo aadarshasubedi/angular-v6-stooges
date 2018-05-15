@@ -2,18 +2,18 @@ import { ConfirmDialogComponent, ConfirmDialogData } from './confirm-dialog.comp
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-export type Result = 'ok' | undefined;
+export type MatConfirmDialogResult = 'ok' | undefined;
 
 @Injectable({
   providedIn : 'root'
 })
-export class ConfirmService {
+export class MatConfirmDialogService {
 
   constructor(
     private dialog: MatDialog
   ) { }
 
-  confirmAsync(title: string, keyword?: string, inputType?: 'password' | 'number'): Promise<Result> {
+  confirmAsync(title: string, keyword?: string, inputType?: 'password' | 'number'): Promise<MatConfirmDialogResult> {
     return new Promise((resolve) => {
       const dialogRef = this.dialog.open<ConfirmDialogComponent, ConfirmDialogData>(ConfirmDialogComponent, {
         width: '300px',

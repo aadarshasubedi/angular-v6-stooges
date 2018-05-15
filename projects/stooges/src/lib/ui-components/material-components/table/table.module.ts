@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { TableComponent } from './table.component';
-import { CommonModule } from '../../common/common.module';
-import { MatTableModule, MatSortModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatTableComponent } from './table.component';
+import { MatTableModule as RealMatTableModule, MatSortModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '../../../common/common.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    MatTableModule,
+    RealMatTableModule,
     MatSortModule,
     MatIconModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule
   ],
-  exports : [TableComponent],
-  declarations: [TableComponent]
+  exports: [MatTableComponent],
+  declarations: [MatTableComponent]
 })
-export class TableModule { }
+export class MatTableModule { }

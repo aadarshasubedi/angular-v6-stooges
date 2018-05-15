@@ -47,14 +47,14 @@
 
         <ng-container *ngSwitchCase="'Youtube'">
           <iframe *ngIf="getByPath(resource,keyAndTControl.key)"
-            [src]="getByPath(resource,keyAndTControl.key) | youtubeCode"
+            [src]="getByPath(resource,keyAndTControl.key) | sYoutubeCode"
             frameborder="0"
             allowfullscreen></iframe>
         </ng-container>
 
         <ng-container *ngSwitchCase="'File'">
           <a *ngIf="getByPath(resource,keyAndTControl.key)"
-            [href]="getByPath(resource,keyAndTControl.key) | download"
+            [href]="getByPath(resource,keyAndTControl.key) | sDownload"
             download>
             <mat-icon>insert_drive_file</mat-icon>
           </a>

@@ -1,10 +1,8 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmService, Result as ConfirmResult } from '../../../modules/material/confirm-dialog/confirm.service';
 import { map, debounceTime, startWith, distinctUntilChanged, skip, pairwise } from 'rxjs/operators';
-import { GenerateRowNgClassFn } from '../../material/table/table.component';
 import { FormControl } from '@angular/forms';
-import { TableConfig } from './Config';
+import { MatCPTableConfig } from './cp-table-config';
 import { Entity } from '../../../types';
 import { AbstractTableComponent } from '../../table/abstract-table.component';
 import { YoutubeLoadingService } from '../../../common/services/youtube-loading.service';
@@ -13,13 +11,15 @@ import { AbstractResourceService } from '../../../entity/services/abstract-resou
 import { KeyAndTControl } from '../../table/table.service';
 import { isValidDate } from '../../../common/methods/is-valid-date';
 import { toOdataSpecialCharacter } from '../../../common/methods/to-odata-special-character';
+import { MatConfirmDialogService, MatConfirmDialogResult } from '../confirm-dialog/confirm.service';
+import { MatTableGenerateRowNgClassFn } from './table.component';
 
 /*
    future : 
    以后可能会实现让用户自定义 displayColumns
    到时就可以不需要 language 的概念的
 */
-export abstract class AbstractCPTableComponent<ResourceType extends Entity> extends AbstractTableComponent<ResourceType> {
+export abstract class MatAbstractCPTableComponent<ResourceType extends Entity> extends AbstractTableComponent<ResourceType> {
 
   constructor(
     activatedRoute: ActivatedRoute,
@@ -27,16 +27,16 @@ export abstract class AbstractCPTableComponent<ResourceType extends Entity> exte
     cdr: ChangeDetectorRef,
     youtubeLoading: YoutubeLoadingService,
     protected resourceService: AbstractResourceService<ResourceType>,
-    protected confirmService: ConfirmService,
+    protected confirmDialogService: MatConfirmDialogService,
     stoogesAppComponent: StoogesAppComponent,
-    protected tableConfig: TableConfig
+    protected tableConfig: MatCPTableConfig
   ) {
     super(activatedRoute, router, cdr, youtubeLoading, stoogesAppComponent);
   }
 
   // 要特别就 override
-  protected async confirmBeforeRemoveAsync(_resource: ResourceType): Promise<ConfirmResult> {
-    return this.confirmService.confirmAsync('Confirm remove ?');
+  protected async confirmBeforeRemoveAsync(_resource: ResourceType): Promise<MatConfirmDialogResult> {
+    return this.confirmDialogService.confirmAsync('Confirm remove ?');
   }
 
   dataSource = this.resources$.pipe(map(resources => {
@@ -51,7 +51,7 @@ export abstract class AbstractCPTableComponent<ResourceType extends Entity> exte
 
   displayedColumns: string[]
   keyAndTControls: KeyAndTControl[]
-  generateRowNgClassFn: GenerateRowNgClassFn<ResourceType>
+  generateRowNgClassFn: MatTableGenerateRowNgClassFn<ResourceType>
 
   search = new FormControl('');
   private defaultLanguage: string;
