@@ -1,7 +1,7 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-textarea',
@@ -10,15 +10,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => TextareaComponent)
+      useExisting: forwardRef(() => MatTextareaComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => TextareaComponent)
+      useExisting: forwardRef(() => MatTextareaComponent)
     }
   ]
 })
-export class TextareaComponent extends AbstractAccessorComponent implements OnInit {
+export class MatTextareaComponent extends AbstractAccessorComponent implements OnInit {
 
 
   ngOnInit() {

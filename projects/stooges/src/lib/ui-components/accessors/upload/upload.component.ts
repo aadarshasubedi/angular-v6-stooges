@@ -17,8 +17,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as EXIF from 'exif-js/exif';
 import { Observable ,  Subject ,  Subscription } from 'rxjs';
 
-import { File as SFile } from '../../../models/File';
-import { Image as SImage } from '../../../models/Image';
+import { SFile as SFile } from '../../../models/File';
+import { SImage as SImage } from '../../../models/Image';
 import { CropData, Dimension } from '../../../types';
 import { ImageService } from '../../../common/services/image.service';
 import { AlertService } from '../../../common/services/alert.service';

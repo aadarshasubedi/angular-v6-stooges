@@ -1,6 +1,6 @@
 import { ImageService } from '../services/image.service';
 import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
-import { Image } from '../../models/Image';
+import { SImage } from '../../models/Image';
 
 @Directive({
   selector: '[sImage]'
@@ -14,7 +14,7 @@ export class ImageDirective implements OnInit, OnChanges {
   ) { }
 
   @Input('sImage')
-  info: [Image, string];
+  info: [SImage, string];
 
   private setToElem() {
     const image = this.info[0];
@@ -32,7 +32,7 @@ export class ImageDirective implements OnInit, OnChanges {
       let descriptions = imageData.scenes[0].descriptions;
       if (this.info[2]) {
         // need combine
-        const image2 = this.info[2] as Image;
+        const image2 = this.info[2] as SImage;
         const imageData2 = this.imageService.getData(image2.$metadata, image2.width, image2.height, image2.src, this.info[3] as string);
         descriptions = [
           ...descriptions,

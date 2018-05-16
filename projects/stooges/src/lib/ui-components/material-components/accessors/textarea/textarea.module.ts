@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { TextareaComponent } from './textarea.component';
+import { MatTextareaComponent } from './textarea.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
+        FormModule,
         MatInputModule,
         MatFormFieldModule
     ],
-    exports: [TextareaComponent],
-    declarations: [TextareaComponent],
+    exports: [MatTextareaComponent],
+    declarations: [MatTextareaComponent],
     providers: []
 })
-export class TextareaModule { }
+export class MatTextareaModule { }

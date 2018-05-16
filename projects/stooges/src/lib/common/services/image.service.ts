@@ -44,9 +44,9 @@ export class Description {
   src: string
 }
 
-export class ImageData {
+export class SImageData {
 
-  constructor(data?: Partial<ImageData>) {
+  constructor(data?: Partial<SImageData>) {
     Object.assign(this, data);
   }
 
@@ -130,14 +130,14 @@ export class ImageService {
     return (pressWidthOrHeight == 'width') ? pressTo / aspectRatioPercentage : pressTo * aspectRatioPercentage;
   }
 
-  getDescriptionForCurrentDevice(data: ImageData): Description {
+  getDescriptionForCurrentDevice(data: SImageData): Description {
     return data.scenes[0].descriptions
       .orderBy(['-retina'])
       .filter(d => d.deviceRetina.device == this.deviceService.device &&
         d.retina <= this.deviceService.devicePixelRatio)[0];
   }
 
-  getBiggestDescription(data: ImageData): Description {
+  getBiggestDescription(data: SImageData): Description {
     // 所有场景 descriptions 放一起, 比面积找出最大的 description
     let allDescriptions = data.scenes.reduce<Description[]>((result, scene) => {
       return result.concat(scene.descriptions);
@@ -274,9 +274,9 @@ export class ImageService {
    * @param imageSrc 后端返回图片 src,width,height 就可以 build 出 srcset 了
    * @param specifyScene 优化 when get srcset 只处理一个场景
    */
-  getData(metadata: ImageMetadata, imageWidth?: number, imageHeight?: number, imageSrc?: string, specifyScene?: string): ImageData {
+  getData(metadata: ImageMetadata, imageWidth?: number, imageHeight?: number, imageSrc?: string, specifyScene?: string): SImageData {
     let aspectRatioDimension = (metadata.aspectRatio) ? this.aspectRatioToDimension(metadata.aspectRatio) : null;
-    let result = new ImageData({
+    let result = new SImageData({
       aspectRatioDimension,
       scenes: Object.keys(metadata.scenes).filter(key => !specifyScene || key.split(',').map(v => v.clearSpace()).indexOf(specifyScene) != -1).map(key => {
         let fullExpression = metadata.scenes[key].clearSpace();

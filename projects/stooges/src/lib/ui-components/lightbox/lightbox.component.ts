@@ -7,7 +7,7 @@ import { ImageService } from '../../common/services/image.service';
 import { OverlayFrameComponent } from '../overlay/overlay-frame/overlay-frame.component';
 import { SliderComponent } from '../slider/slider.component';
 import { ZoomComponent } from '../zoom/zoom.component';
-import { Image } from '../../models/Image';
+import { SImage } from '../../models/Image';
 import { KeyCode, Dimension } from '../../types';
 
 
@@ -117,7 +117,7 @@ export class LightboxComponent implements OnInit {
    */
   public show(data: any) {
     this.defaultPage = this.datas.findIndex(d => {
-      return (d[this.imageKey] as Image).src == (data[this.imageKey] as Image).src;
+      return (d[this.imageKey] as SImage).src == (data[this.imageKey] as SImage).src;
     });
     if (this.overlayRef) this.disposeOverlayRef(); // 确保只有一个 overlay
     this.overlayRef = this.overlay.create(new OverlayConfig({
@@ -166,7 +166,7 @@ export class LightboxComponent implements OnInit {
   private getImageWidthAndHeight(data: any): Dimension {
     const cacheDimension = this.cacheForImageWidthAndHeight.get(data);
     if (cacheDimension) return cacheDimension;
-    const image = data[this.imageKey] as Image;
+    const image = data[this.imageKey] as SImage;
     const imageData = this.imageService.getData(image.$metadata, image.width, image.height, image.src, this.imageScene);
     const imageDescription = this.imageService.getDescriptionForCurrentDevice(imageData);
     const dimension = {

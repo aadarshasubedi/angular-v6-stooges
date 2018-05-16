@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
-import { ImageData } from '../../../common/services/image.service';
-import { FileMetadata } from '../../../entity/decorators';
+import { SImageData } from '../../../../../common/services';
+import { FileMetadata } from '../../../../../decorators/FileDecorator';
 
 @Component({
   selector: 's-upload-requirement',
@@ -17,7 +17,7 @@ export class UploadRequirementComponent implements OnInit {
   fileMetadata: FileMetadata
 
   @Input()
-  imageData: ImageData;
+  imageData: SImageData;
 
   ngOnInit() {
 

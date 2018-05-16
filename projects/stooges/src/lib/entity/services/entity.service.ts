@@ -4,8 +4,8 @@ import { EntityConfig, ENTITY_CONFIG } from './entity-config';
 import { UploadedPathService } from '../../common/services/uploaded-path.service';
 import { Constructor } from '../../types';
 import { ResourcesMetadata } from '../../decorators/Resources';
-import { Image } from '../../models/Image';
-import { File } from '../../models/File';
+import { SImage } from '../../models/Image';
+import { SFile } from '../../models/File';
 import { ResourceMetadata } from '../../decorators/Resource';
 import { EnumMetadata } from '../../decorators/Enum';
 import { JsonMetadata } from '../../decorators/Json';
@@ -120,7 +120,7 @@ export class EntityService {
                         const isCkeditor = Reflect.hasMetadata(METADATA_KEY.Ckeditor, instance, key);
                         let enumMetadata = Reflect.getMetadata(METADATA_KEY.Enum, instance, key) as EnumMetadata;
 
-                        const setupFile = (fileOrImage: File | Image, sqlFileOrImage: Object) => {
+                        const setupFile = (fileOrImage: SFile | SImage, sqlFileOrImage: Object) => {
                             // 复制过去就可以了
                             Object.keys(sqlFileOrImage).forEach(key => {
                                 fileOrImage[key] = sqlFileOrImage[key];
@@ -154,14 +154,14 @@ export class EntityService {
                                 const metadata = (Reflect.getMetadata(METADATA_KEY.Image, instance, key) as ImageMetadata);
                                 if (metadata.multiple) {
                                     instance[key] = (value as any[]).map(v => {
-                                        const image = new Image({ $metadata: metadata });
+                                        const image = new SImage({ $metadata: metadata });
                                         setupFile(image, v);
                                         return image;
                                     });
                                 }
                                 else {
                                     // single 
-                                    const image = new Image({ $metadata: metadata });
+                                    const image = new SImage({ $metadata: metadata });
                                     setupFile(image, value);
                                     instance[key] = image
                                 }
@@ -171,14 +171,14 @@ export class EntityService {
                                 const metadata = (Reflect.getMetadata(METADATA_KEY.File, instance, key) as FileMetadata);
                                 if (metadata.multiple) {
                                     instance[key] = (value as any[]).map(v => {
-                                        const file = new File();
+                                        const file = new SFile();
                                         setupFile(file, v);
                                         return file;
                                     });
                                 }
                                 else {
                                     // single 
-                                    const file = new File();
+                                    const file = new SFile();
                                     setupFile(file, value);
                                     instance[key] = file
                                 }
@@ -249,7 +249,7 @@ export class EntityService {
                     const metadata: FileMetadata = imageMetaData || fileMetaData;
                     if (metadata.multiple) {
                         let datas = [];
-                        datas = (value as File[]).map(v => {
+                        datas = (value as SFile[]).map(v => {
                             const clone = { ...v };
                             if (clone.src != '') {
                                 clone.src = this.uploadedPathService.pathToName(clone.src);
@@ -259,7 +259,7 @@ export class EntityService {
                         instance[key] = JSON.stringify(datas);
                     } else {
                         // single
-                        const clone = { ...value } as File;
+                        const clone = { ...value } as SFile;
                         if (clone.src != '') {
                             clone.src = this.uploadedPathService.pathToName(clone.src);
                         }

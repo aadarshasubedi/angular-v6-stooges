@@ -1,8 +1,8 @@
 import { Subscription } from 'rxjs';
 
 import { UploadImageFile } from './UploadImageFile';
-import { Image } from '../../../models/Image';
-import { File as SFile } from '../../../models/File';
+import { SImage } from '../../../models/Image';
+import { SFile as SFile } from '../../../models/File';
 
 
 export class UploadFileData {
@@ -19,7 +19,7 @@ export class UploadFileData {
 
     originalFile: File;
     percent = 0; //start from 0
-    file: SFile | Image;
+    file: SFile | SImage;
 
     imageFile: UploadImageFile | null; // image 才会有, 没有就给 null
 }

@@ -1,5 +1,5 @@
-export class File {
-    constructor(data?: Partial<File>) {
+export class SFile {
+    constructor(data?: Partial<SFile>) {
         Object.assign(this, data);
     }
     //server path

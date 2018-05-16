@@ -114,3 +114,9 @@ export { MatSimpleSelectComponent } from './lib/ui-components/material-component
 
 export { MatSlideToggleModule } from './lib/ui-components/material-components/accessors/slide-toggle/slide-toggle.module';
 export { MatSlideToggleComponent } from './lib/ui-components/material-components/accessors/slide-toggle/slide-toggle.component';
+
+export { MatTextareaModule } from './lib/ui-components/material-components/accessors/textarea/textarea.module';
+export { MatTextareaComponent } from './lib/ui-components/material-components/accessors/textarea/textarea.component';
+
+export { MatTimePickerModule } from './lib/ui-components/material-components/accessors/time-picker/time-picker.module';
+export { MatTimePickerComponent } from './lib/ui-components/material-components/accessors/time-picker/time-picker.component';

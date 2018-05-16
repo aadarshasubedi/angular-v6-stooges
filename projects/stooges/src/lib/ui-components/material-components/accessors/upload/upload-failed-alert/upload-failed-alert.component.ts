@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { ImageData } from '../../../common/services/image.service';
-import { FileMetadata } from '../../../entity/decorators';
+import { SImageData } from '../../../../../common/services/image.service';
+import { FileMetadata } from '../../../../../decorators/FileDecorator';
 
 @Component({
   selector: 's-upload-failed-alert',
@@ -18,7 +18,7 @@ export class UploadFailedAlertComponent implements OnInit {
 
   fileMetadata: FileMetadata;
 
-  imageData: ImageData;
+  imageData: SImageData;
 
   ngOnInit() {
     this.fileMetadata = this.data.fileMetadata;

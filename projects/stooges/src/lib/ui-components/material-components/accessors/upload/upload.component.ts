@@ -1,26 +1,28 @@
-import { DeviceService } from './../../common/services/device.service';
-import { FileData } from './../../ui-components/accessors/upload/FileData';
+import { UploadFileData } from './../../../../ui-components/accessors/upload/UploadFileData';
 import { Component, forwardRef, OnInit, Optional, ViewChild, ViewContainerRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 
-import { ImageData, ImageService } from '../../common/services/image.service';
-import { FGroupNameDirective } from '../../entity/directives/f-group-name.directive';
-import { FGroupDirective } from '../../entity/directives/f-group.directive';
-import { UploadComponent as BaseUploadComponent } from '../../ui-components/accessors/upload/upload.component';
-import { AbstractAccessorComponent } from '../abstract-accessor';
 import { UploadFailedAlertComponent } from './upload-failed-alert/upload-failed-alert.component';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { fadeInAnimation } from '../../animations/fade-in.animation';
-import { OverlayFrameComponent } from '../../ui-components/overlay/overlay-frame/overlay-frame.component';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { ZoomData } from '../../ui-components/s-zoom/s-zoom.component';
-import { CropData } from '../../../stooges/types';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
-import { FileMetadata, ImageMetadata, METADATA_KEY } from '../../entity/decorators';
+import { InvalidFocus } from '../../../../form/types';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { ImageService, SImageData } from '../../../../common/services/image.service';
+import { DeviceService } from '../../../../common/services/device.service';
+import { ImageMetadata } from '../../../../decorators/ImageDecorator';
+import { FileMetadata } from '../../../../decorators/FileDecorator';
+import { METADATA_KEY } from '../../../../decorators/metadata-key';
+import { fadeInAnimation } from '../../../../animations/fade-in.animation';
+import { CropData } from '../../../../types';
+import { UploadComponent } from '../../../accessors/upload/upload.component';
+import { EGroupDirective } from '../../../../entity/directives/e-group.directive';
+import { EGroupNameDirective } from '../../../../entity/directives/e-group-name.directive';
+import { OverlayFrameComponent } from '../../../overlay/overlay-frame/overlay-frame.component';
+import { ZoomData } from '../../../zoom/zoom.component';
 
 export interface CropingFileData {
-  fileData: FileData;
+  fileData: UploadFileData;
   frameWidth: number;
   frameHeight: number;
   transformFrameWidth: number;
@@ -35,16 +37,16 @@ export interface CropingFileData {
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => UploadComponent)
+      useExisting: forwardRef(() => MatUploadComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => UploadComponent)
+      useExisting: forwardRef(() => MatUploadComponent)
     }
   ],
   animations: [fadeInAnimation]
 })
-export class UploadComponent extends AbstractAccessorComponent implements OnInit {
+export class MatUploadComponent extends AbstractAccessorComponent implements OnInit {
 
   checkPending() {
     return this.baseUploadComponent.pending;
@@ -54,8 +56,8 @@ export class UploadComponent extends AbstractAccessorComponent implements OnInit
     return this.baseUploadComponent.uploadDoneEmitter;
   }
 
-  @ViewChild('upload', { read: BaseUploadComponent })
-  private upload: BaseUploadComponent;
+  @ViewChild('upload', { read: UploadComponent })
+  private upload: UploadComponent;
 
   focus() {
     this.upload.focus();
@@ -69,20 +71,20 @@ export class UploadComponent extends AbstractAccessorComponent implements OnInit
     private vcr: ViewContainerRef,
     private deviceService: DeviceService,
     @Optional() closestControl: ControlContainer,
-    @Optional() fGroupDirective?: FGroupDirective,
-    @Optional() fGroupNameDirective?: FGroupNameDirective
+    @Optional() eGroupDirective?: EGroupDirective,
+    @Optional() eGroupNameDirective?: EGroupNameDirective
   ) {
-    super(cdr, closestControl, fGroupDirective, fGroupNameDirective);
+    super(cdr, closestControl, eGroupDirective, eGroupNameDirective);
   }
 
 
   isImageUpload: boolean;
-  imageData: ImageData;
+  imageData: SImageData;
   fileMetadata: FileMetadata | ImageMetadata;
   imageMetadata: ImageMetadata; // 方便 html 调用
 
-  @ViewChild(BaseUploadComponent, { read: BaseUploadComponent })
-  baseUploadComponent: BaseUploadComponent;
+  @ViewChild(UploadComponent, { read: UploadComponent })
+  baseUploadComponent: UploadComponent;
 
   validationFailed() {
     this.dialog.open(UploadFailedAlertComponent, {
@@ -110,7 +112,7 @@ export class UploadComponent extends AbstractAccessorComponent implements OnInit
   private overlayRef: OverlayRef | null;
 
   cropingFileDatas: CropingFileData[];
-  cropfile(fileDatas: FileData[]) {
+  cropfile(fileDatas: UploadFileData[]) {
     this.cropingFileDatas = fileDatas.map<CropingFileData>(fileData => {
 
       const deviceWidth = this.deviceService.deviceWidth - 40;
@@ -175,7 +177,7 @@ export class UploadComponent extends AbstractAccessorComponent implements OnInit
 
   ngOnInit() {
     super.ngOnInit();
-    this.fileMetadata = this.fControl.getMetadata(METADATA_KEY.File) || this.fControl.getMetadata(METADATA_KEY.Image);
+    this.fileMetadata = this.eControl.getMetadata(METADATA_KEY.File) || this.eControl.getMetadata(METADATA_KEY.Image);
     if (this.fileMetadata instanceof ImageMetadata) {
       this.imageMetadata = this.fileMetadata;
       this.isImageUpload = true;

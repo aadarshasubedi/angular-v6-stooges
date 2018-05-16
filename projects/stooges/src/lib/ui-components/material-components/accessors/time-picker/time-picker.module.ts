@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { TimePickerModule as StoogesTimePickerModule } from '../../ui-components/accessors/time-picker/time-picker.module';
-import { TimePickerComponent } from './time-picker.component';
+import { MatTimePickerComponent } from './time-picker.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
+import { TimePickerModule } from '../../../accessors/time-picker/time-picker.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
-        StoogesTimePickerModule
+        FormModule,
+        TimePickerModule
     ],
-    exports: [TimePickerComponent],
-    declarations: [TimePickerComponent],
+    exports: [MatTimePickerComponent],
+    declarations: [MatTimePickerComponent],
     providers: []
 })
-export class TimePickerModule { }
+export class MatTimePickerModule { }

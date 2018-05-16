@@ -1,9 +1,6 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
-
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
-
-
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
 @Component({
   selector: 's-mat-time-picker',
@@ -12,15 +9,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => TimePickerComponent)
+      useExisting: forwardRef(() => MatTimePickerComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => TimePickerComponent)
+      useExisting: forwardRef(() => MatTimePickerComponent)
     }
   ]
 })
-export class TimePickerComponent extends AbstractAccessorComponent implements OnInit {
+export class MatTimePickerComponent extends AbstractAccessorComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();

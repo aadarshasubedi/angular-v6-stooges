@@ -1,10 +1,10 @@
-import { File } from './File';
+import { SFile } from './File';
 import { defineHideProperty } from '../common';
 import { ImageMetadata } from '../decorators/ImageDecorator';
 
-export class Image extends File {
+export class SImage extends SFile {
 
-    constructor(data?: Partial<Image>) {
+    constructor(data?: Partial<SImage>) {
         super();
         defineHideProperty(this,'$metadata',null); 
         Object.assign(this, data);

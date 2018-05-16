@@ -4,7 +4,7 @@ import { SortDirection, MatColumnDef, MatRowDef, MatTable } from '@angular/mater
 import { ImageService } from '../../../common/services/image.service';
 import { Entity } from '../../../types';
 import { getByPath } from '../../../common/methods/get-by-path';
-import { Image } from '../../../models/Image';
+import { SImage } from '../../../models/Image';
 import { KeyAndTControl } from '../../table/table.service';
 
 type Resource = Entity;
@@ -135,7 +135,7 @@ export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
 
   sub = new Subscription();
 
-  getBiggestImageSrc(image : Image) {
+  getBiggestImageSrc(image : SImage) {
     let imageData =  this.imageService.getData(image.$metadata, image.width, image.height, image.src);
     return this.imageService.getBiggestDescription(imageData).src;
   }

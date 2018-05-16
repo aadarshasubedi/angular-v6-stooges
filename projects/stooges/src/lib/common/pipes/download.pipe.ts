@@ -2,7 +2,7 @@ import { APIServerConfig } from '../services/api-server-config';
 import { API_SERVER_CONFIG } from '../services/api-server-config';
 import { Pipe, PipeTransform, Inject } from '@angular/core';
 import { UploadedPathService } from '../services/uploaded-path.service';
-import { File } from '../../models/File';
+import { SFile } from '../../models/File';
 
 @Pipe({
     name: 'sDownload'
@@ -14,7 +14,7 @@ export class DownloadPipe implements PipeTransform {
         @Inject(API_SERVER_CONFIG) private APIServerConfig: APIServerConfig
     ) { }
 
-    transform(file: File): string {
+    transform(file: SFile): string {
         if (file == null) return '';
         // 由于后台定义了 "能 download 的 file 一定是在 uploadedFiles 里面"
         // 而前端只要是 uploadedFiles , file.src 就会有 '/uploadFiles/'
