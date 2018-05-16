@@ -1,6 +1,6 @@
 
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, Optional } from '@angular/core';
-import { ControlContainer, FormControl, FormGroupDirective } from '@angular/forms';
+import { ControlContainer, FormControl, FormGroupDirective, ValidationErrors } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { dynamicSlideUpDownAnimation } from '../../../animations/dynamic-slide-up-down.animation';
@@ -62,7 +62,7 @@ export class ErrorsComponent implements OnInit, OnDestroy {
         );
     }
 
-    getKeys(obj: Object): string[] {
+    getKeys(obj: ValidationErrors | null): string[] {
         return (obj) ? Object.keys(obj) : [];
     }
 

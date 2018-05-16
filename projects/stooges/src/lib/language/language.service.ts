@@ -1,7 +1,7 @@
 import { LanguageConfig, LANGUAGE_CONFIG } from './language-config';
 import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 
-interface Matcher<T> { [languageCode: string]: T; }
+export interface LanguageMatcher<T> { [languageCode: string]: T; }
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class LanguageService {
     return this.locale;
   }
 
-  match<T = string>(matcher: Matcher<T>): T {
+  match<T = string>(matcher: LanguageMatcher<T>): T {
     const defaultLanguage = this.config.defaultLanguage;
     const currLanguage = this.locale;
     return (currLanguage in matcher) ? matcher[currLanguage] : matcher[defaultLanguage];

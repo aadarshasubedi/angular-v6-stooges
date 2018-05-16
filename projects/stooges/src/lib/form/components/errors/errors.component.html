@@ -4,6 +4,6 @@
 -->
 <div *ngIf="canShow" [@dynamicSlideUpDown] class="overflow-hidden">
   <div *ngFor="let error of getKeys(formControl.errors)" [@dynamicSlideUpDown] class="overflow-hidden">
-    <div>{{ formControl.errors[error] }}</div>
+    <div>{{ formControl.errors![error] }}</div>
   </div>
 </div>

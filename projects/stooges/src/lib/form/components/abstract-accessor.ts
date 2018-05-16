@@ -7,7 +7,7 @@ import { EGroupNameDirective } from '../../entity/directives/e-group-name.direct
 import { InvalidFocus } from '../types';
 import { EControl } from '../../entity/models/EControl';
 
-type Focusable = { focus: () => void };
+export type Focusable = { focus: () => void };
 
 export class AbstractAccessorComponent implements OnInit, OnDestroy, InvalidFocus {
 

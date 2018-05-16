@@ -1,4 +1,4 @@
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Pipe, PipeTransform } from '@angular/core';
 
 // sample
@@ -10,7 +10,7 @@ export class YoutubeCodePipe implements PipeTransform {
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  transform(value: string) {
+  transform(value: string) : SafeResourceUrl {
     if (value == null || value == '') return '';
     const yoututeFront = 'https://www.youtube.com/watch';
     const yoututeKey = 'v';

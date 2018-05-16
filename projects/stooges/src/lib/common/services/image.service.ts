@@ -96,7 +96,7 @@ export class SImageData {
   }
 }
 
-interface DeviceRetina {
+export interface DeviceRetina {
   device: string
   deviceWidth: number
   maxRetina: number

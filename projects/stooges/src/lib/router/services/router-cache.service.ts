@@ -5,7 +5,7 @@ import { RouterLifeCycleService } from './router-life-cycle.service';
 import { RouterCommonService } from './router-common.service';
 import { zip } from 'rxjs';
 
-export type Cache = {
+export type RouterCache = {
   navigation: NavigationStart,
   scrollTop: number,
   store: Map<Route, DetachedRouteHandle>
@@ -30,7 +30,7 @@ export class RouterCacheService {
       map(_ => {
         // add navigations
         // create,edit,remove cache (note: 这个可以 remove cache but can't destroy component, due to 不明白 ng)   
-        let removedCaches: Cache[] = [];
+        let removedCaches: RouterCache[] = [];
         let { before } = this.lifeCycle;
         let caches = this.caches;
 
@@ -108,7 +108,7 @@ export class RouterCacheService {
     });
   }
 
-  private caches: Cache[] = [];
+  private caches: RouterCache[] = [];
 
   private findCacheIndex(navigationId: number) {
     return this.caches.findIndex(c => c.navigation.id == navigationId);

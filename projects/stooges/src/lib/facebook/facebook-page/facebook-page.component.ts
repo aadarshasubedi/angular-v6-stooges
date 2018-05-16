@@ -1,5 +1,5 @@
 import { FacebookService } from '../facebook.service';
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Inject, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 
 declare let FB: any;
 

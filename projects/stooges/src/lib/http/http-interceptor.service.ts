@@ -12,7 +12,7 @@ import { Observable, from as fromPromise, throwError as _throw } from 'rxjs';
 import { catchError, map, retryWhen, scan, delay } from 'rxjs/operators';
 import { AlertService } from '../common/services/alert.service';
 
-type IdentityIntercept = (req: HttpRequest<any>) => HttpRequest<any>;
+export type IdentityInterceptFn = (req: HttpRequest<any>) => HttpRequest<any>;
 
 @Injectable()
 export class HttpInterceptor implements NgHttpInterceptor {
@@ -23,7 +23,7 @@ export class HttpInterceptor implements NgHttpInterceptor {
         private alertService: AlertService
     ) { }
 
-    identityIntercept: IdentityIntercept | null;
+    identityIntercept: IdentityInterceptFn | null;
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let finalReq = req;

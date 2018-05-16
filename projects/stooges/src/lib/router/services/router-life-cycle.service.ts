@@ -40,7 +40,6 @@ export class RouterLifeCycleService {
       this.navigations.push(this.after);
       let goOrBack = this.recursiveGetRightId(this.before) < this.recursiveGetRightId(this.after) ? 'go' : 'back';
       let isPopstate = this.isPopstate = this.common.isPopstate(this.after);
-      let navigationId = this.common.getRightId(this.after);
       this.isBack = goOrBack == 'back';
       this.isHref = !isPopstate && goOrBack == 'go';
       this.isForward = isPopstate && goOrBack == 'go';

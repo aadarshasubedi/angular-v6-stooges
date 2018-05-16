@@ -2,7 +2,7 @@ import { EntityService } from '../entity/services/entity.service';
 import { pairwise, filter, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Observable } from 'rxjs';
 
 import { HttpInterceptor } from '../http/http-interceptor.service';
 import { HttpWatcher } from '../http/http-watcher.service';
@@ -61,8 +61,8 @@ export class IdentityService {
     user$ = new BehaviorSubject<User | null>(null);
 
     /** if already login, it won't trigger哦 */
-    login$ = this.user$.pipe(pairwise(), filter(([prev, curr]) => !!(!prev && curr)));
-    logout$ = this.user$.pipe(pairwise(), filter(([prev, curr]) => !!(prev && !curr)));
+    login$ : Observable<[User | null, User |null]> = this.user$.pipe(pairwise(), filter(([prev, curr]) => !!(!prev && curr)));
+    logout$: Observable<[User | null, User |null]> = this.user$.pipe(pairwise(), filter(([prev, curr]) => !!(prev && !curr)));
     initDone$ = new ReplaySubject<void>();
 
     private userStream: ResourceStream<User> | null;

@@ -103,7 +103,7 @@ export class RouterOutletComponent implements OnInit, OnDestroy {
       let onActive = () => {
         let o1 = this.router.events.pipe(
           filter(e => e instanceof ResolveEnd),
-          map(e => {
+          map(_ => {
             return Math.abs(document.body.getBoundingClientRect().top - (this.outletEl.nativeElement as HTMLElement).getBoundingClientRect().top);
           })
         );
