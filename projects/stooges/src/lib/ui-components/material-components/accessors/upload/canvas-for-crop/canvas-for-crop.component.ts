@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 's-canvas-for-crop',
+  selector: 's-mat-canvas-for-crop',
   templateUrl: './canvas-for-crop.component.html',
   styleUrls: ['./canvas-for-crop.component.scss']
 })
-export class CanvasForCropComponent implements OnInit, AfterViewInit {
+export class MatCanvasForCropComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 

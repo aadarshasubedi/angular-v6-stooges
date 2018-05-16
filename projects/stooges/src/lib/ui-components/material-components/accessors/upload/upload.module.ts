@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { MatUploadComponent } from './upload.component';
-import { UploadFailedAlertComponent } from './upload-failed-alert/upload-failed-alert.component';
-import { UploadRequirementComponent } from './upload-requirement/upload-requirement.component';
+import { MatUploadFailedAlertComponent } from './upload-failed-alert/upload-failed-alert.component';
+import { MatUploadRequirementComponent } from './upload-requirement/upload-requirement.component';
 import { MatIconModule, MatDialogModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 import { OverlayModule as NgOverlayModule } from '@angular/cdk/overlay';
-import { CanvasForCropComponent } from './canvas-for-crop/canvas-for-crop.component';
+import { MatCanvasForCropComponent } from './canvas-for-crop/canvas-for-crop.component';
 import { ZoomModule } from '../../../zoom/zoom.module';
 import { OverlayModule } from '../../../overlay/overlay.module';
 import { CommonModule } from '../../../../common/common.module';
@@ -26,8 +26,8 @@ import { UploadModule } from '../../../accessors/upload/upload.module';
         NgOverlayModule
     ],
     exports: [MatUploadComponent],
-    declarations: [MatUploadComponent, UploadFailedAlertComponent, UploadRequirementComponent, CanvasForCropComponent],
+    declarations: [MatUploadComponent, MatUploadFailedAlertComponent, MatUploadRequirementComponent, MatCanvasForCropComponent],
     providers: [],
-    entryComponents: [UploadFailedAlertComponent]
+    entryComponents: [MatUploadFailedAlertComponent]
 })
 export class MatUploadModule { }

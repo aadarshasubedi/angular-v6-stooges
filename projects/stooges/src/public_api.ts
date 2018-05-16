@@ -120,3 +120,9 @@ export { MatTextareaComponent } from './lib/ui-components/material-components/ac
 
 export { MatTimePickerModule } from './lib/ui-components/material-components/accessors/time-picker/time-picker.module';
 export { MatTimePickerComponent } from './lib/ui-components/material-components/accessors/time-picker/time-picker.component';
+
+export { MatCanvasForCropComponent } from './lib/ui-components/material-components/accessors/upload/canvas-for-crop/canvas-for-crop.component';
+export { MatUploadFailedAlertComponent } from './lib/ui-components/material-components/accessors/upload/upload-failed-alert/upload-failed-alert.component';
+export { MatUploadRequirementComponent } from './lib/ui-components/material-components/accessors/upload/upload-requirement/upload-requirement.component';
+export { MatUploadComponent } from './lib/ui-components/material-components/accessors/upload/upload.component';
+export { MatUploadModule } from './lib/ui-components/material-components/accessors/upload/upload.module';

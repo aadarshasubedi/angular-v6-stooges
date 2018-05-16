@@ -5,12 +5,12 @@ import { SImageData } from '../../../../../common/services/image.service';
 import { FileMetadata } from '../../../../../decorators/FileDecorator';
 
 @Component({
-  selector: 's-upload-failed-alert',
+  selector: 's-mat-upload-failed-alert',
   templateUrl: './upload-failed-alert.component.html',
   styleUrls: ['./upload-failed-alert.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UploadFailedAlertComponent implements OnInit {
+export class MatUploadFailedAlertComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any

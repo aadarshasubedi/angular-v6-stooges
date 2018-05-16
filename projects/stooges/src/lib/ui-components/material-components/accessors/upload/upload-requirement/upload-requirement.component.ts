@@ -4,12 +4,12 @@ import { SImageData } from '../../../../../common/services';
 import { FileMetadata } from '../../../../../decorators/FileDecorator';
 
 @Component({
-  selector: 's-upload-requirement',
+  selector: 's-mat-upload-requirement',
   templateUrl: './upload-requirement.component.html',
   styleUrls: ['./upload-requirement.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UploadRequirementComponent implements OnInit {
+export class MatUploadRequirementComponent implements OnInit {
 
   constructor() { }
 

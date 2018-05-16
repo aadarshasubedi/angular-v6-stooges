@@ -3,7 +3,7 @@ import { Component, forwardRef, OnInit, Optional, ViewChild, ViewContainerRef, T
 import { ControlContainer } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 
-import { UploadFailedAlertComponent } from './upload-failed-alert/upload-failed-alert.component';
+import { MatUploadFailedAlertComponent } from './upload-failed-alert/upload-failed-alert.component';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { InvalidFocus } from '../../../../form/types';
@@ -21,7 +21,7 @@ import { EGroupNameDirective } from '../../../../entity/directives/e-group-name.
 import { OverlayFrameComponent } from '../../../overlay/overlay-frame/overlay-frame.component';
 import { ZoomData } from '../../../zoom/zoom.component';
 
-export interface CropingFileData {
+export interface MatCropingFileData {
   fileData: UploadFileData;
   frameWidth: number;
   frameHeight: number;
@@ -87,7 +87,7 @@ export class MatUploadComponent extends AbstractAccessorComponent implements OnI
   baseUploadComponent: UploadComponent;
 
   validationFailed() {
-    this.dialog.open(UploadFailedAlertComponent, {
+    this.dialog.open(MatUploadFailedAlertComponent, {
       width: '100%',
       maxWidth: '500px',
       data: {
@@ -111,9 +111,9 @@ export class MatUploadComponent extends AbstractAccessorComponent implements OnI
 
   private overlayRef: OverlayRef | null;
 
-  cropingFileDatas: CropingFileData[];
+  cropingFileDatas: MatCropingFileData[];
   cropfile(fileDatas: UploadFileData[]) {
-    this.cropingFileDatas = fileDatas.map<CropingFileData>(fileData => {
+    this.cropingFileDatas = fileDatas.map<MatCropingFileData>(fileData => {
 
       const deviceWidth = this.deviceService.deviceWidth - 40;
       const deviceHeight = this.deviceService.deviceHeight - 100;
@@ -152,7 +152,7 @@ export class MatUploadComponent extends AbstractAccessorComponent implements OnI
     this.overlayRef.attach(portal);
   }
 
-  crop(cropingFileData: CropingFileData, zoomData: ZoomData) {
+  crop(cropingFileData: MatCropingFileData, zoomData: ZoomData) {
     const crop: CropData = {
       x: Math.ceil(Math.abs(zoomData.x / zoomData.scale) * this.deviceService.devicePixelRatio / cropingFileData.scale),
       y: Math.ceil(Math.abs(zoomData.y / zoomData.scale) * this.deviceService.devicePixelRatio / cropingFileData.scale),
