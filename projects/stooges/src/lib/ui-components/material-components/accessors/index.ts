@@ -9,4 +9,7 @@ export * from './radio-list';
 export * from './simple-select';
 export * from './slide-toggle';
 export * from './textarea';
+export * from './time-picker';
+export * from './upload';
 export * from './ErrorStateMatcher'
+export * from './types';

@@ -1,6 +1,7 @@
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher as RealMatErrorStateMatcher } from '@angular/material';
 
+// 全局注入
 export class MatErrorStateMatcher implements RealMatErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
