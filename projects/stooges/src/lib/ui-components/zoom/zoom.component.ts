@@ -9,6 +9,7 @@ import { ImageService } from '../../common/services/image.service';
 import { ObjectFix, XY } from '../../types';
 import { PropagatingHammerInput } from '../../stooges-app/hammer-config';
 import { range } from '../../common/methods/range';
+import { ZoomData } from './types';
 
 /*
   note :
@@ -17,13 +18,7 @@ import { range } from '../../common/methods/range';
   3. hammer bug pinch auto trigger panEnd ()
   4. 如果以后 ng-content 的内容要绑定 hammer 要留意. hammer vs hammer 一定是要调整的
 */
-
-export interface ZoomData {
-  x: number;
-  y: number;
-  scale: number;
-}
-
+ 
 @Component({
   selector: 's-zoom',
   templateUrl: './zoom.component.html',

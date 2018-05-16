@@ -5,14 +5,10 @@ import { ImageService } from '../../../common/services/image.service';
 import { Entity } from '../../../types';
 import { getByPath } from '../../../common/methods/get-by-path';
 import { SImage } from '../../../models/Image';
-import { KeyAndTControl } from '../../table/table.service';
+import { KeyAndTControl } from '../../table/types';
+import { MatTableGenerateRowNgClassFn } from './types';
 
 type Resource = Entity;
-export interface MatTableGenerateRowNgClassFn<T> {
-  (resource: T, index: number): {
-    [propName: string]: boolean
-  };
-}
 
 @Component({
   selector: 's-mat-table',

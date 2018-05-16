@@ -1,46 +1,12 @@
 import { Injectable } from '@angular/core';
-import { TableCellType } from './types';
+import { TableCellType, KeyAndTControl } from './types';
 import { EnumMetadata } from '../../decorators/Enum';
 import { valueToDisplay } from '../../common/methods/value-to-display';
 import { DisplayNameMetadata } from '../../decorators/DisplayName';
 import { METADATA_KEY } from '../../decorators/metadata-key';
-
-
-export class TControl {
-  constructor(data?: Partial<TControl>) {
-    Object.assign(this, data);
-  }
-  displayName: string
-  sortable: boolean
-  cellType: TableCellType
-}
-
-export class EnumTConrol extends TControl {
-  constructor(data?: Partial<EnumTConrol>) {
-    super();
-    Object.assign(this, data);
-  }
-  enumMetadata: EnumMetadata
-  valueToDisplay(value: string) {
-    if (!value) return value;
-    let item = this.enumMetadata.items.find(i => i.value == value)!;
-    return item.display || valueToDisplay(item.value);
-  }
-}
-
-export class TGroup {
-  [propName: string]: TGroup | TControl | any
-  keys(): string[] {
-    return Object.keys(this);
-  }
-}
-
-export interface KeyAndTControl {
-  key: string,
-  tControl: TControl
-}
-
-
+import { TControl } from './models/TControl';
+import { EnumTConrol } from './models/EnumTConrol';
+ 
 @Injectable({
   providedIn : 'root'
 })

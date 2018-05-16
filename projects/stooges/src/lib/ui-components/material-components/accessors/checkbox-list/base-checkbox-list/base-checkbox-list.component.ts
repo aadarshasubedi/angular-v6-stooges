@@ -1,3 +1,4 @@
+import { CompareWith } from './../../../../../types';
 
 import {
   ChangeDetectionStrategy,
@@ -43,11 +44,11 @@ export class MatBaseCheckboxListComponent implements OnInit, ControlValueAccesso
     private cdr: ChangeDetectorRef
   ) { }
  
-  private defaultCompareWith = (o1: any, o2: any) => o1 === o2;
+  private defaultCompareWith : CompareWith = (o1: any, o2: any) => o1 === o2;
   private _compareWith = this.defaultCompareWith;
   @Input()
   get compareWith() { return this._compareWith; }
-  set compareWith(fn: (o1: any, o2: any) => boolean) {
+  set compareWith(fn: CompareWith) {
     this._compareWith = fn || this.defaultCompareWith;
     if (this.checkboxQueryList) {
       this.modelToView();

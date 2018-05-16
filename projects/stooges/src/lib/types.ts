@@ -16,6 +16,7 @@ export interface Metadata {
     value: any
 }
 export type CompareType = 'eq' | 'gt' | 'ge' | 'lt' | 'le';
+export type CompareWith<T = any> = (a : T, b : T) => boolean;
 
 export interface TitleMetaDescription { title?: string; metaDescription?: string; }
 export interface RobotsRule { self: RobotsValue; children: RobotsValue; }

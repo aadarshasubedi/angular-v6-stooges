@@ -1,8 +1,9 @@
+import { CompareWith } from './../../../../types';
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { METADATA_KEY, EnumMetadata, EnumItem, UrlTitleMetadata, ForeignKeyMetadata, ResourceMetadata, ServiceMetadata, ForeignKeySelectMetadata, ResourcesMetadata } from '../../entity/decorators';
 import { AccessorType } from '../types';
-import { GetValueFn, GetDisplayFn, CompareWithFn } from '../simple-select/simple-select.component';
+import { MatSimpleSelectGetValueFn, MatSimpleSelectGetDisplayFn } from '../simple-select/simple-select.component';
 import { AbstractResourceService } from '../../../../entity/services/abstract-resource.service';
 import { Entity } from '../../../../types';
 import { valueToDisplay } from '../../../../common/methods/value-to-display';
@@ -30,11 +31,11 @@ export class MatDynamicAccessorComponent implements OnInit {
 
   accessorType: AccessorType
 
-  simpleSelectGetValue: GetValueFn
-  simpleSelectGetDisplay: GetDisplayFn
+  simpleSelectGetValue: MatSimpleSelectGetValueFn
+  simpleSelectGetDisplay: MatSimpleSelectGetDisplayFn
   simpleSelectItems: any
   simpleSelectMultiple: boolean
-  simpleSelectCompareWith: CompareWithFn
+  simpleSelectCompareWith: CompareWith<Entity>
   simpleSelectLoading: boolean
 
   urlTitle: string | null = null;
@@ -114,7 +115,7 @@ export class MatDynamicAccessorComponent implements OnInit {
 
       this.accessorType = 'SimpleSelect';
       this.simpleSelectMultiple = true;
-      this.simpleSelectCompareWith = (item1: Entity, item2: Entity) => {
+      this.simpleSelectCompareWith = (item1, item2) => {
         return item1.Id === item2.Id;
       }
       this.simpleSelectGetDisplay = (item: any) => {

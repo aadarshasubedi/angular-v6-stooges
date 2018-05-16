@@ -4,11 +4,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SubscriptionLike as ISubscription, BehaviorSubject } from 'rxjs';
 
 import { pairwise, distinctUntilChanged, startWith } from 'rxjs/operators';
-import { TableSetting } from './TableDefaultSetting';
 import { SortDirection } from '@angular/material';
 import { YoutubeLoadingService } from '../../common/services/youtube-loading.service';
 import { StoogesAppComponent } from '../../stooges-app/stooges-app.component';
 import { QueryParams, ResourceStream, Entity } from '../../types';
+import { TableSetting } from './models/TableDefaultSetting';
 
 export abstract class AbstractTableComponent<ResourceType extends Entity> implements OnDestroy {
 

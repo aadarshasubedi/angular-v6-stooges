@@ -1,4 +1,3 @@
-import { UploadFileData } from './../../../../ui-components/accessors/upload/UploadFileData';
 import { Component, forwardRef, OnInit, Optional, ViewChild, ViewContainerRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { MatDialog } from '@angular/material';
@@ -19,17 +18,10 @@ import { UploadComponent } from '../../../accessors/upload/upload.component';
 import { EGroupDirective } from '../../../../entity/directives/e-group.directive';
 import { EGroupNameDirective } from '../../../../entity/directives/e-group-name.directive';
 import { OverlayFrameComponent } from '../../../overlay/overlay-frame/overlay-frame.component';
-import { ZoomData } from '../../../zoom/zoom.component';
-
-export interface MatCropingFileData {
-  fileData: UploadFileData;
-  frameWidth: number;
-  frameHeight: number;
-  transformFrameWidth: number;
-  transformFrameHeight: number;
-  scale: number;
-}
-
+import { MatCropingFileData } from './types';
+import { UploadFileData } from './../../../../ui-components/accessors/upload/UploadFileData';
+import { ZoomData } from '../../../zoom/types';
+ 
 @Component({
   selector: 's-mat-upload',
   templateUrl: './upload.component.html',

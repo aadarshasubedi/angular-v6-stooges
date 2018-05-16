@@ -1,3 +1,4 @@
+import { CompareWith } from './types';
 import { getByPath, isDate } from './common';
 
 declare global {
@@ -19,7 +20,7 @@ declare global {
     }
     interface Array<T> {
         singleOrDefault(filter?: (item: T) => boolean): T | undefined;
-        groupBy(compareWith?: (a: T, b: T) => boolean): T[][];
+        groupBy(compareWith?: CompareWith<T>): T[][];
         orderBy(paths: string[], needClone?: boolean, convertValue?: (path: string, value: any) => any): T[];
         sum(getNumberFn?: (item: T) => number): number;
         max(getNumberFn?: (item: T) => number): number;
@@ -228,7 +229,7 @@ export function setupExtension() {
     };
 
 
-    Array.prototype.groupBy = function (compareWith: (a: any, b: any) => boolean = (a, b) => a === b) {
+    Array.prototype.groupBy = function (compareWith: CompareWith = (a, b) => a === b) {
         const datas = [...this];
         const results = [];
         while (datas.length > 0) {

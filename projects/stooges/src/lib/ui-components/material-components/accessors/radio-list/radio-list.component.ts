@@ -1,6 +1,7 @@
 import { Component, forwardRef, OnInit, Input } from '@angular/core';
 import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
 import { InvalidFocus } from '../../../../form/types';
+import { CompareWith } from '../../../../types';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class MatRadioListComponent extends AbstractAccessorComponent implements 
   }
 
   @Input()
-  compareWith: any
+  compareWith: CompareWith
 }
 
 

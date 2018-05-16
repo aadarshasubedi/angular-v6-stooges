@@ -1,6 +1,7 @@
 import { Component, forwardRef, OnInit, Input } from '@angular/core';
 import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
 import { InvalidFocus } from '../../../../form/types';
+import { CompareWith } from '../../../../types';
 
 
 @Component({
@@ -25,6 +26,6 @@ export class MatCheckboxListComponent extends AbstractAccessorComponent implemen
   }
 
   @Input()
-  compareWith: any
+  compareWith: CompareWith
 }
 
