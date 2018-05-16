@@ -31,12 +31,12 @@ type PublishMethod = (value: Model) => void;
   styleUrls: ['./base-radio-list.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => BaseRadioListComponent),
+    useExisting: forwardRef(() => MatBaseRadioListComponent),
     multi: true
   }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaseRadioListComponent implements OnInit, ControlValueAccessor, AfterContentInit {
+export class MatBaseRadioListComponent implements OnInit, ControlValueAccessor, AfterContentInit {
 
   constructor(
     private cdr: ChangeDetectorRef

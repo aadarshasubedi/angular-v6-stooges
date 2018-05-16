@@ -1,7 +1,7 @@
 import { Component, forwardRef, OnInit, Input } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-checkbox-list',
@@ -10,15 +10,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => CheckboxListComponent)
+      useExisting: forwardRef(() => MatCheckboxListComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => CheckboxListComponent)
+      useExisting: forwardRef(() => MatCheckboxListComponent)
     }
   ]
 })
-export class CheckboxListComponent extends AbstractAccessorComponent implements OnInit {
+export class MatCheckboxListComponent extends AbstractAccessorComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();

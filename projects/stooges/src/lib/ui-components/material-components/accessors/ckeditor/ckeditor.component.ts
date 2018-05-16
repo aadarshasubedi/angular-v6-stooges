@@ -1,7 +1,7 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-ckeditor',
@@ -10,15 +10,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => CkeditorComponent)
+      useExisting: forwardRef(() => MatCkeditorComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => CkeditorComponent)
+      useExisting: forwardRef(() => MatCkeditorComponent)
     }
   ]
 })
-export class CkeditorComponent extends AbstractAccessorComponent implements OnInit {
+export class MatCkeditorComponent extends AbstractAccessorComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();

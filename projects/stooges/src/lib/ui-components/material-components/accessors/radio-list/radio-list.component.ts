@@ -1,7 +1,7 @@
 import { Component, forwardRef, OnInit, Input } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-radio-list',
@@ -10,15 +10,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => RadioListComponent)
+      useExisting: forwardRef(() => MatRadioListComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => RadioListComponent)
+      useExisting: forwardRef(() => MatRadioListComponent)
     }
   ]
 })
-export class RadioListComponent extends AbstractAccessorComponent implements OnInit {
+export class MatRadioListComponent extends AbstractAccessorComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();

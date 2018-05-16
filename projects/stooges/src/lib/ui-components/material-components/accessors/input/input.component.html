@@ -8,7 +8,7 @@
     #focusable="matInput"
     matInput
     [formControl]="formControl"
-    placeholder="{{ (ui.displayName | translate) + (required ? '*' : '') }}"
+    placeholder="{{ displayName + (required ? '*' : '') }}"
     [type]="inputType"
     [attr.autocomplete]="autocomplete"
     [readonly]="isReadonly">
@@ -17,7 +17,7 @@
     #focusable="matInput"
     matInput
     [formControl]="formControl"
-    placeholder="{{ (ui.displayName | translate) + (required ? '*' : '') }}"
+    placeholder="{{ displayName + (required ? '*' : '') }}"
     type="number"
     [attr.autocomplete]="autocomplete"
     [readonly]="isReadonly">
@@ -29,7 +29,7 @@
     <s-errors #errors
       [control]="formControl">
     </s-errors>
-    <div [hide]="errors.canShow && formControl.invalid">
+    <div [sHide]="errors.canShow && formControl.invalid">
       <ng-content select=".inputMatHintStart"></ng-content>
     </div>
   </mat-hint>

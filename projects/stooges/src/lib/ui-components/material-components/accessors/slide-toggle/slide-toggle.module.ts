@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
-import { MatSlideToggleModule } from '@angular/material';
+import { MatSlideToggleModule as RealMatSlideToggleModule } from '@angular/material';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { SlideToggleComponent } from './slide-toggle.component';
+import { MatSlideToggleComponent } from './slide-toggle.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
-        MatSlideToggleModule
+        FormModule,
+        RealMatSlideToggleModule
     ],
-    exports: [SlideToggleComponent],
-    declarations: [SlideToggleComponent],
+    exports: [MatSlideToggleComponent],
+    declarations: [MatSlideToggleComponent],
     providers: []
 })
-export class SlideToggleModule { }
+export class MatSlideToggleModule { }

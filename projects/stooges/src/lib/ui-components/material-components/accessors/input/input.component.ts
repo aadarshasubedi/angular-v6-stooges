@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, forwardRef, Input, OnInit } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-input',
@@ -10,17 +10,16 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => InputComponent)
+      useExisting: forwardRef(() => MatInputComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => InputComponent)
+      useExisting: forwardRef(() => MatInputComponent)
     }
   ]
 })
-export class InputComponent extends AbstractAccessorComponent implements OnInit, AfterViewInit {
+export class MatInputComponent extends AbstractAccessorComponent implements OnInit, AfterViewInit {
 
-  // 也可以让外面控制哦
   @Input('type')
   inputType = 'text';
 
@@ -43,7 +42,6 @@ export class InputComponent extends AbstractAccessorComponent implements OnInit,
 
   ngOnInit() {
     super.ngOnInit();
-    this.inputType = (this.ui.accessorType) ? this.ui.accessorType.substring('input'.length).toLowerCase() : this.inputType;
   }
 
   ngAfterViewInit() {

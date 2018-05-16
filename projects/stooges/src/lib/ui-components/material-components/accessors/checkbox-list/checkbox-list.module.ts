@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CheckboxListComponent } from './checkbox-list.component';
-import { CommonModule } from '../../common/common.module';
-import { BaseCheckboxListComponent } from './base-checkbox-list/base-checkbox-list.component';
-import { FormsModule } from '../../forms/forms.module';
+import { MatCheckboxListComponent } from './checkbox-list.component';
+import { MatBaseCheckboxListComponent } from './base-checkbox-list/base-checkbox-list.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormModule
   ],
   exports : [
-    CheckboxListComponent,
-    BaseCheckboxListComponent
+    MatCheckboxListComponent,
+    MatBaseCheckboxListComponent
   ],
-  declarations: [CheckboxListComponent, BaseCheckboxListComponent]
+  declarations: [MatCheckboxListComponent, MatBaseCheckboxListComponent]
 })
-export class CheckboxListModule { }
+export class MatCheckboxListModule { }

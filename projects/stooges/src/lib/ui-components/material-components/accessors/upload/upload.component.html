@@ -1,7 +1,7 @@
 <div class="uploadArea px2 mb2">
   <button mat-raised-button
     class="uploadButton">
-    {{ (ui.displayName | translate)! + (required ? '*' : '') }}
+    {{ displayName + (required ? '*' : '') }}
     <s-upload #upload
       [formControl]="formControl"
       [metadata]="fileMetadata"

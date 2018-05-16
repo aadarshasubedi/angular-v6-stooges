@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { CkeditorModule as StoogesCkeditorModule } from '../../ui-components/accessors/ckeditor/ckeditor.module';
-import { CkeditorComponent } from './ckeditor.component';
+import { MatCkeditorComponent } from './ckeditor.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
+import { CkeditorModule } from '../../../accessors/ckeditor/ckeditor.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
-        StoogesCkeditorModule
+        FormModule,
+        CkeditorModule
     ],
-    exports: [CkeditorComponent],
-    declarations: [CkeditorComponent],
+    exports: [MatCkeditorComponent],
+    declarations: [MatCkeditorComponent],
     providers: [],
 })
-export class CkeditorModule { }
+export class MatCkeditorModule { }

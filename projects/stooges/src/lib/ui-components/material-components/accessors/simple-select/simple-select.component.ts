@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, forwardRef } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../../../modules/material/abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 type Item = any;
 export type GetValueFn = (item: Item) => any;
@@ -24,15 +24,15 @@ let defaultCompareWith: CompareWithFn = (o1, o2) => {
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => SimpleSelectComponent)
+      useExisting: forwardRef(() => MatSimpleSelectComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => SimpleSelectComponent)
+      useExisting: forwardRef(() => MatSimpleSelectComponent)
     }
   ]
 })
-export class SimpleSelectComponent extends AbstractAccessorComponent implements OnInit {
+export class MatSimpleSelectComponent extends AbstractAccessorComponent implements OnInit {
 
   @Input()
   items: Item[];

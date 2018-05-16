@@ -6,7 +6,7 @@
     [matDatepickerFilter]="filter"
     [formControl]="formControl"
     [matDatepicker]="picker"
-    placeholder="{{ (ui.displayName | translate) + (required ? '*' : '') }}">
+    placeholder="{{ displayName + (required ? '*' : '') }}">
   <mat-datepicker-toggle matSuffix
     [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker

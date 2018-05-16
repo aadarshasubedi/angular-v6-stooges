@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { DatePickerComponent } from './date-picker.component';
-import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatDatePickerComponent } from './date-picker.component';
+import { MatDatepickerModule as RealMatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
-        MatDatepickerModule,
+        FormModule,
+        RealMatDatepickerModule,
         MatNativeDateModule,
         MatFormFieldModule,
         MatInputModule
     ],
-    exports: [DatePickerComponent],
-    declarations: [DatePickerComponent],
+    exports: [MatDatePickerComponent],
+    declarations: [MatDatePickerComponent],
     providers: [],
 })
-export class DatePickerModule { }
+export class MatDatePickerModule { }

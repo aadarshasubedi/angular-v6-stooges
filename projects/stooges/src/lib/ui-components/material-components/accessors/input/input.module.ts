@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatInputModule as RealMatInputModule, MatFormFieldModule } from '@angular/material';
 
-import { CommonModule } from '../../common/common.module';
-import { FormsModule } from '../../forms/forms.module';
-import { LanguageModule } from '../../language/language.module';
-import { InputComponent } from './input.component';
+import { MatInputComponent } from './input.component';
+import { CommonModule } from '../../../../common/common.module';
+import { FormModule } from '../../../../form/form.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        LanguageModule,
-        MatInputModule,
+        FormModule,
+        RealMatInputModule,
         MatFormFieldModule
     ],
-    exports: [InputComponent],
-    declarations: [InputComponent],
+    exports: [MatInputComponent],
+    declarations: [MatInputComponent],
     providers: []
 })
-export class InputModule { }
+export class MatInputModule { }

@@ -1,8 +1,8 @@
-import { InputComponent } from '../input/input.component';
+import { MatInputComponent } from '../input/input.component';
 import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-password-eye',
@@ -11,15 +11,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => PasswordEyeComponent)
+      useExisting: forwardRef(() => MatPasswordEyeComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => PasswordEyeComponent)
+      useExisting: forwardRef(() => MatPasswordEyeComponent)
     }
   ]
 })
-export class PasswordEyeComponent extends AbstractAccessorComponent implements OnInit {
+export class MatPasswordEyeComponent extends AbstractAccessorComponent implements OnInit {
 
   @Input()
   showPassword: boolean;
@@ -32,7 +32,7 @@ export class PasswordEyeComponent extends AbstractAccessorComponent implements O
     this.inputComponent.focus();
   }
 
-  @ViewChild(InputComponent, { read: InputComponent })
-  inputComponent: InputComponent;
+  @ViewChild(MatInputComponent, { read: MatInputComponent })
+  inputComponent: MatInputComponent;
 }
 

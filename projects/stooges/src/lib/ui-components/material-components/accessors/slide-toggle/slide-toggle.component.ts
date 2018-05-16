@@ -1,7 +1,7 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
 
-import { AbstractAccessorComponent } from '../abstract-accessor';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
 
 @Component({
   selector: 's-mat-slide-toggle',
@@ -10,15 +10,15 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => SlideToggleComponent)
+      useExisting: forwardRef(() => MatSlideToggleComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => SlideToggleComponent)
+      useExisting: forwardRef(() => MatSlideToggleComponent)
     }
   ]
 })
-export class SlideToggleComponent extends AbstractAccessorComponent implements OnInit {
+export class MatSlideToggleComponent extends AbstractAccessorComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();

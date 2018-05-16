@@ -32,12 +32,12 @@ type PublishMethod = (value: Model) => void;
   styleUrls: ['./base-checkbox-list.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => BaseCheckboxListComponent),
+    useExisting: forwardRef(() => MatBaseCheckboxListComponent),
     multi: true
   }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaseCheckboxListComponent implements OnInit, ControlValueAccessor, AfterContentInit {
+export class MatBaseCheckboxListComponent implements OnInit, ControlValueAccessor, AfterContentInit {
 
   constructor(
     private cdr: ChangeDetectorRef

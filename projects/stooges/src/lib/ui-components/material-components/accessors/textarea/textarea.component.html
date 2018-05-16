@@ -4,7 +4,7 @@
     matTextareaAutosize
     matAutosizeMinRows="2"
     [formControl]="formControl"
-    placeholder="{{ (ui.displayName | translate) + (required ? '*' : '') }}"></textarea>
+    placeholder="{{ displayName + (required ? '*' : '') }}"></textarea>
   <mat-hint align="start">
     <s-errors #errors
       [control]="formControl">

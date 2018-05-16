@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material';
 
-import { CommonModule } from '../../common/common.module';
-import { InputModule } from '../input/input.module';
-import { PasswordEyeComponent } from './password-eye.component';
+import { MatInputModule } from '../input/input.module';
+import { MatPasswordEyeComponent } from './password-eye.component';
+import { CommonModule } from '../../../../common/common.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        InputModule,
+        MatInputModule,
         MatIconModule
     ],
-    exports: [PasswordEyeComponent],
-    declarations: [PasswordEyeComponent],
+    exports: [MatPasswordEyeComponent],
+    declarations: [MatPasswordEyeComponent],
     providers: []
 })
-export class PasswordEyeModule { }
+export class MatPasswordEyeModule { }

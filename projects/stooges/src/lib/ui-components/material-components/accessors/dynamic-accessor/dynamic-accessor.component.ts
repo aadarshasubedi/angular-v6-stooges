@@ -1,12 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, Injector } from '@angular/core';
-import { FControl, FGroup } from '../../entity/edm-form.service';
 import { FormControl } from '@angular/forms';
 import { METADATA_KEY, EnumMetadata, EnumItem, UrlTitleMetadata, ForeignKeyMetadata, ResourceMetadata, ServiceMetadata, ForeignKeySelectMetadata, ResourcesMetadata } from '../../entity/decorators';
 import { AccessorType } from '../types';
-import { stooges } from '../../../stooges/stooges';
 import { GetValueFn, GetDisplayFn, CompareWithFn } from '../simple-select/simple-select.component';
-import { Entity } from '../../../stooges/types';
-import { ResourceService } from '../../entity/resource.service';
+import { AbstractResourceService } from '../../../../entity/services/abstract-resource.service';
+import { Entity } from '../../../../types';
+import { valueToDisplay } from '../../../../common/methods/value-to-display';
+import { EControl } from '../../../../entity/models/EControl';
+import { EGroup } from '../../../../entity/models/EGroup';
 
 @Component({
   selector: 's-mat-dynamic-accessor',
@@ -14,7 +15,7 @@ import { ResourceService } from '../../entity/resource.service';
   styleUrls: ['./dynamic-accessor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DynamicAccessorComponent implements OnInit {
+export class MatDynamicAccessorComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -22,7 +23,7 @@ export class DynamicAccessorComponent implements OnInit {
   ) { }
 
   @Input()
-  fControl: FControl
+  eControl: EControl
 
   @Input('control')
   formControl: FormControl
@@ -41,13 +42,13 @@ export class DynamicAccessorComponent implements OnInit {
   async ngOnInit() {
 
     let has = (key: string) => {
-      return this.fControl.hasMetadata(key);
+      return this.eControl.hasMetadata(key);
     }
 
-    let type = this.fControl.getMetadata(METADATA_KEY.Type);
-    let enumMetadata = this.fControl.getMetadata(METADATA_KEY.Enum) as EnumMetadata;
-    let foreignKeyMetadata = this.fControl.getMetadata(METADATA_KEY.ForeignKey) as ForeignKeyMetadata;
-    let resourcesMetadata = this.fControl.getMetadata(METADATA_KEY.Resources) as ResourcesMetadata;
+    let type = this.eControl.getMetadata(METADATA_KEY.Type);
+    let enumMetadata = this.eControl.getMetadata(METADATA_KEY.Enum) as EnumMetadata;
+    let foreignKeyMetadata = this.eControl.getMetadata(METADATA_KEY.ForeignKey) as ForeignKeyMetadata;
+    let resourcesMetadata = this.eControl.getMetadata(METADATA_KEY.Resources) as ResourcesMetadata;
 
     if (has(METADATA_KEY.Email)) {
       this.accessorType = 'Email';
@@ -81,15 +82,15 @@ export class DynamicAccessorComponent implements OnInit {
         return item.value;
       }
       this.simpleSelectGetDisplay = (item: EnumItem) => {
-        return item.display || stooges.valueToDisplay(item.value);
+        return item.display || valueToDisplay(item.value);
       }
     }
     else if (foreignKeyMetadata) {
-      let resourceMetadata = Reflect.getMetadata(METADATA_KEY.Resource, (this.fControl.$parent as FGroup).resource, foreignKeyMetadata.linkTo) as ResourceMetadata;
+      let resourceMetadata = Reflect.getMetadata(METADATA_KEY.Resource, (this.eControl.$parent as EGroup).resource, foreignKeyMetadata.linkTo) as ResourceMetadata;
       let constructor = resourceMetadata.getConstructor();
       let serviceMetadata = Reflect.getMetadata(METADATA_KEY.Service, constructor) as ServiceMetadata;
       let foreignSelectMetadata = Reflect.getMetadata(METADATA_KEY.ForeignKeySelect, constructor) as ForeignKeySelectMetadata;
-      let service = this.injector.get(serviceMetadata.getConstructor()) as ResourceService<Entity>;
+      let service = this.injector.get(serviceMetadata.getConstructor()) as AbstractResourceService<Entity>;
 
       this.accessorType = 'SimpleSelect';
       this.simpleSelectMultiple = false;
@@ -109,7 +110,7 @@ export class DynamicAccessorComponent implements OnInit {
       let constructor = resourcesMetadata.getConstructor();
       let serviceMetadata = Reflect.getMetadata(METADATA_KEY.Service, constructor) as ServiceMetadata;
       let foreignSelectMetadata = Reflect.getMetadata(METADATA_KEY.ForeignKeySelect, constructor) as ForeignKeySelectMetadata;
-      let service = this.injector.get(serviceMetadata.getConstructor()) as ResourceService<Entity>;
+      let service = this.injector.get(serviceMetadata.getConstructor()) as AbstractResourceService<Entity>;
 
       this.accessorType = 'SimpleSelect';
       this.simpleSelectMultiple = true;
@@ -128,7 +129,7 @@ export class DynamicAccessorComponent implements OnInit {
       this.accessorType = 'Number';
     }
     else if (type === String) {
-      let urlTitleMetadata = this.fControl.getMetadata(METADATA_KEY.UrlTitle) as UrlTitleMetadata;
+      let urlTitleMetadata = this.eControl.getMetadata(METADATA_KEY.UrlTitle) as UrlTitleMetadata;
       if (urlTitleMetadata) this.urlTitle = urlTitleMetadata.linkTo;
       this.accessorType = 'Text';
     }

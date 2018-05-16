@@ -1,6 +1,3 @@
-import { DeviceService } from '../../common/services/device.service';
-import { FGroupNameDirective } from '../../entity/directives/f-group-name.directive';
-import { FGroupDirective } from '../../entity/directives/f-group.directive';
 import { ControlContainer } from '@angular/forms';
 import {
   Component,
@@ -11,9 +8,12 @@ import {
   Optional,
   ChangeDetectorRef
 } from '@angular/core';
-import { AbstractAccessorComponent } from '../abstract-accessor';
 import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material';
-import { InvalidFocus } from '../../forms/invalid-focus.interface';
+import { DeviceService } from '../../../../common/services/device.service';
+import { AbstractAccessorComponent } from '../../../../form/components/abstract-accessor';
+import { InvalidFocus } from '../../../../form/types';
+import { EGroupDirective } from '../../../../entity/directives/e-group.directive';
+import { EGroupNameDirective } from '../../../../entity/directives/e-group-name.directive';
 
 @Component({
   selector: 's-mat-date-picker',
@@ -22,25 +22,25 @@ import { InvalidFocus } from '../../forms/invalid-focus.interface';
   providers: [
     {
       provide: AbstractAccessorComponent,
-      useExisting: forwardRef(() => DatePickerComponent)
+      useExisting: forwardRef(() => MatDatePickerComponent)
     },
     {
       provide: InvalidFocus,
-      useExisting: forwardRef(() => DatePickerComponent)
+      useExisting: forwardRef(() => MatDatePickerComponent)
     }
   ]
 })
-export class DatePickerComponent extends AbstractAccessorComponent implements OnInit {
+export class MatDatePickerComponent extends AbstractAccessorComponent implements OnInit {
 
   constructor(
     cdr: ChangeDetectorRef,
     private deviceService: DeviceService,
     @Inject(MAT_DATE_FORMATS) private inputDateDisplayFormat: MatDateFormats,
     @Optional() closestControl?: ControlContainer,
-    @Optional() fGroupDirective?: FGroupDirective,
-    @Optional() fGroupNameDirective?: FGroupNameDirective
+    @Optional() eGroupDirective?: EGroupDirective,
+    @Optional() eGroupNameDirective?: EGroupNameDirective
   ) {
-    super(cdr, closestControl, fGroupDirective, fGroupNameDirective);
+    super(cdr, closestControl, eGroupDirective, eGroupNameDirective);
   }
 
   mobile = false;
