@@ -23,8 +23,8 @@ import { startWith } from 'rxjs/operators';
    同步的时候不管 disable, 也不管 item 有没有   
 */
 
-type Model = any[];
-type PublishMethod = (value: Model) => void;
+export type MatBaseCheckboxListComponentModel = any[];
+export type MatBaseCheckboxListComponentPublishMethod = (value: MatBaseCheckboxListComponentModel) => void;
 
 
 @Component({
@@ -62,7 +62,7 @@ export class MatBaseCheckboxListComponent implements OnInit, ControlValueAccesso
     }
   }
 
-  values: Model;
+  values: MatBaseCheckboxListComponentModel;
 
   @ContentChildren(MatCheckbox, { read: MatCheckbox })
   checkboxQueryList: QueryList<MatCheckbox>
@@ -106,14 +106,14 @@ export class MatBaseCheckboxListComponent implements OnInit, ControlValueAccesso
 
   }
 
-  writeValue(values: Model): void {
+  writeValue(values: MatBaseCheckboxListComponentModel): void {
     this.values = [...values];
     if (this.checkboxQueryList) {
       this.modelToView();
     }
   }
 
-  registerOnChange(fn: PublishMethod): void {
+  registerOnChange(fn: MatBaseCheckboxListComponentPublishMethod): void {
     this.publish = fn;
   }
 
@@ -121,7 +121,7 @@ export class MatBaseCheckboxListComponent implements OnInit, ControlValueAccesso
     this.touch = fn;
   }
 
-  private publish: PublishMethod;
+  private publish: MatBaseCheckboxListComponentPublishMethod;
   private touch: any;
 
 }

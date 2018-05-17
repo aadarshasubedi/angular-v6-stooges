@@ -1,14 +1,21 @@
-import { CompareWith } from './../../../../types';
+import { CompareWith } from '../../../../types';
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { METADATA_KEY, EnumMetadata, EnumItem, UrlTitleMetadata, ForeignKeyMetadata, ResourceMetadata, ServiceMetadata, ForeignKeySelectMetadata, ResourcesMetadata } from '../../entity/decorators';
-import { AccessorType } from '../types';
-import { MatSimpleSelectGetValueFn, MatSimpleSelectGetDisplayFn } from '../simple-select/simple-select.component';
+import { MatSimpleSelectComponentGetValueFn, MatSimpleSelectComponentDisplayFn } from '../simple-select/simple-select.component';
 import { AbstractResourceService } from '../../../../entity/services/abstract-resource.service';
 import { Entity } from '../../../../types';
 import { valueToDisplay } from '../../../../common/methods/value-to-display';
 import { EControl } from '../../../../entity/models/EControl';
 import { EGroup } from '../../../../entity/models/EGroup';
+import { METADATA_KEY } from '../../../../decorators/metadata-key';
+import { EnumMetadata, EnumOption } from '../../../../decorators/Enum';
+import { UrlTitleMetadata } from '../../../../decorators/UrlTitle';
+import { ForeignKeyMetadata } from '../../../../decorators/ForeignKey';
+import { ResourceMetadata } from '../../../../decorators/Resource';
+import { ServiceMetadata } from '../../../../decorators/Service';
+import { ForeignKeySelectMetadata } from '../../../../decorators/ForeignKeySelect';
+import { ResourcesMetadata } from '../../../../decorators/Resources';
+import { AccessorType } from '../types';
 
 @Component({
   selector: 's-mat-dynamic-accessor',
@@ -31,8 +38,8 @@ export class MatDynamicAccessorComponent implements OnInit {
 
   accessorType: AccessorType
 
-  simpleSelectGetValue: MatSimpleSelectGetValueFn
-  simpleSelectGetDisplay: MatSimpleSelectGetDisplayFn
+  simpleSelectGetValue: MatSimpleSelectComponentGetValueFn
+  simpleSelectGetDisplay: MatSimpleSelectComponentDisplayFn
   simpleSelectItems: any
   simpleSelectMultiple: boolean
   simpleSelectCompareWith: CompareWith<Entity>
@@ -79,10 +86,10 @@ export class MatDynamicAccessorComponent implements OnInit {
       this.accessorType = 'SimpleSelect';
       this.simpleSelectItems = enumMetadata.items;
       this.simpleSelectMultiple = enumMetadata.multiple;
-      this.simpleSelectGetValue = (item: EnumItem) => {
+      this.simpleSelectGetValue = (item: EnumOption) => {
         return item.value;
       }
-      this.simpleSelectGetDisplay = (item: EnumItem) => {
+      this.simpleSelectGetDisplay = (item: EnumOption) => {
         return item.display || valueToDisplay(item.value);
       }
     }

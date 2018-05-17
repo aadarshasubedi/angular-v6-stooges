@@ -22,8 +22,8 @@ import { MatRadioButton } from '@angular/material/radio';
    参考 checkbox list 做的   
 */
 
-type Model = any;
-type PublishMethod = (value: Model) => void;
+export type MatBaseRadioListComponentModel = any;
+export type MatBaseRadioListComponentPublishMethod = (value: MatBaseRadioListComponentModel) => void;
 
 
 @Component({
@@ -64,7 +64,7 @@ export class MatBaseRadioListComponent implements OnInit, ControlValueAccessor, 
     }
   }
 
-  value: Model;
+  value: MatBaseRadioListComponentModel;
 
   @ContentChildren(MatRadioButton, { read: MatRadioButton })
   radioQueryList: QueryList<MatRadioButton>
@@ -107,14 +107,14 @@ export class MatBaseRadioListComponent implements OnInit, ControlValueAccessor, 
 
   }
 
-  writeValue(value: Model): void {
+  writeValue(value: MatBaseRadioListComponentModel): void {
     this.value = value;
     if (this.radioQueryList) {     
       this.modelToView();
     }
   }
 
-  registerOnChange(fn: PublishMethod): void {
+  registerOnChange(fn: MatBaseRadioListComponentPublishMethod): void {
     this.publish = fn;
   }
 
@@ -122,7 +122,7 @@ export class MatBaseRadioListComponent implements OnInit, ControlValueAccessor, 
     this.touch = fn;
   }
 
-  private publish: PublishMethod;
+  private publish: MatBaseRadioListComponentPublishMethod;
   private touch: any;
 
 }

@@ -15,8 +15,8 @@ import { GoogleRecaptchaService } from './google-recaptcha.service';
 
 declare let grecaptcha: any;
 
-type Model = string;
-type PublishMethod = (value: Model) => void;
+export type GoogleRecaptchaComponentModel = string;
+export type GoogleRecaptchaComponentPublishMethod = (value: GoogleRecaptchaComponentModel) => void;
 
 // 记得 required 哦
 // <s-google-recaptcha formControlName="googleRecaptchaToken" ></s-google-recaptcha>
@@ -65,12 +65,12 @@ export class GoogleRecaptchaComponent implements OnInit, ControlValueAccessor, A
     });
   }
 
-  writeValue(_value: Model): void {
+  writeValue(_value: GoogleRecaptchaComponentModel): void {
     // 不会发生的, 这个 component 只是负责写
   }
 
-  private publish: PublishMethod;
-  registerOnChange(fn: PublishMethod): void {
+  private publish: GoogleRecaptchaComponentPublishMethod;
+  registerOnChange(fn: GoogleRecaptchaComponentPublishMethod): void {
     this.publish = fn;
   }
   touch: any;

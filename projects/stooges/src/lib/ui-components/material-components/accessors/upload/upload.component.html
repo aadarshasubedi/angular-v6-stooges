@@ -12,8 +12,8 @@
   <div class="uploadRequirement">
     <i class="material-icons">help_outline</i>
     <div class="wrap">
-      <s-upload-requirement [fileMetadata]="fileMetadata"
-        [imageData]="imageData"></s-upload-requirement>
+      <s-mat-upload-requirement [fileMetadata]="fileMetadata"
+        [imageData]="imageData"></s-mat-upload-requirement>
     </div>
   </div>
 
@@ -33,18 +33,18 @@
         [sImage]="[fileData.file, 'upload']" />
 
       <a *ngIf="!isImageUpload && fileData.file.src != ''"
-        [href]="fileData.file | download | safeUrl"
+        [href]="fileData.file | sDownload | sSafeUrl"
         download>{{ fileData.file.name }}</a>
 
-      <div [show]="fileData.loading"
+      <div [sShow]="fileData.loading"
         class="box"></div>
-      <mat-spinner [show]="fileData.loading"
+      <mat-spinner [sShow]="fileData.loading"
         [strokeWidth]="2"
         [diameter]="24"
         class="small"></mat-spinner>
-      <mat-icon [hide]="formControl.disabled"
+      <mat-icon [sHide]="formControl.disabled"
         (click)="upload.removeFileData(fileData)"
-        [show]="!fileData.loading">close</mat-icon>
+        [sShow]="!fileData.loading">close</mat-icon>
     </div>
   </div>
 </div>
@@ -61,8 +61,8 @@
           [transformFrameWidth]="cropingFileData.transformFrameWidth"
           [transformFrameHeight]="cropingFileData.transformFrameHeight"
           objectFit="cover">
-          <s-canvas-for-crop [image]="cropingFileData.fileData.imageFile!.image"
-            [orientation]="cropingFileData.fileData.imageFile!.orientation"></s-canvas-for-crop>
+          <s-mat-canvas-for-crop [image]="cropingFileData.fileData.imageFile!.image"
+            [orientation]="cropingFileData.fileData.imageFile!.orientation"></s-mat-canvas-for-crop>
         </s-zoom>
         <div class="croppingOverlay"></div>
         <div class="buttonArea">
@@ -71,7 +71,7 @@
           color="primary"
           class="crop">crop</button>
 
-          <button (click)="zoom.resetToDefaultScale()" [show]="zoom.currentScale < zoom.defaultScale" color="primary" class="reset" mat-icon-button>
+          <button (click)="zoom.resetToDefaultScale()" [sShow]="zoom.currentScale < zoom.defaultScale" color="primary" class="reset" mat-icon-button>
             <mat-icon>refresh</mat-icon>
           </button>
         </div>

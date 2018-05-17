@@ -130,7 +130,7 @@
 
   <mat-row *matRowDef="let resource; let index = index; columns: displayedColumns; when : notEmpty"
     [ngClass]="internalGenerateRowNgClassFn(resource,index)"
-    [sDragover]="showDrag && rowSDragover"
+    [sDragOver]="showDrag && rowSDragover"
     (dragenter)="showDrag && rowDragenterEmitter.emit({ resource : resource, index : index })"></mat-row>
 
   <mat-row *matRowDef="let resource; columns: ['empty']; when : empty"></mat-row>

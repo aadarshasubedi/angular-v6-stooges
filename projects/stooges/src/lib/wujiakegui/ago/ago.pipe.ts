@@ -1,6 +1,7 @@
 import { LanguageService } from '../../language/language.service';
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
+// import * as moment from 'moment';
+const moment = require('moment');
 
 @Pipe({
     name: 'sAgo'

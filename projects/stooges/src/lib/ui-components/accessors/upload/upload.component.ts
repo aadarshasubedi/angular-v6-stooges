@@ -37,15 +37,15 @@ import { toNgHttpParams } from '../../../common/methods/to-ng-http-params';
         <div *ngFor="let fileData of upload.fileDatas" (drop)="upload.moveFileData(fileData,upload.dragingFileData)" (dragstart)="upload.dragingFileData = fileData"
             sDragover draggable="true" class="uploadFile" >
             <img *ngIf="fileData.file.src != ''" [sImage]="[fileData.file, 'upload']">
-            <i [show]="fileData.loading" class="fa fa-spin fa-spinner loading"></i>
-            <i (click)="upload.removeFileData(fileData)" [show]="!fileData.loading" class="fa fa-times close"></i>
+            <i [sShow]="fileData.loading" class="fa fa-spin fa-spinner loading"></i>
+            <i (click)="upload.removeFileData(fileData)" [sShow]="!fileData.loading" class="fa fa-times close"></i>
         </div>
     </div>
     note :
     -由外面处理 error display, 监听 (validationFailed)
 */
-type Model = SFile | SImage | (SFile | SImage)[];
-type PublishMethod = (value: Model) => void;
+export type UploadComponentModel = SFile | SImage | (SFile | SImage)[];
+export type UploadComponentPublishMethod = (value: UploadComponentModel) => void;
 
 
 export type UploadErrorCode = 'extension' | 'maxSize' | 'minWidth,minHeight' | '';
@@ -383,7 +383,7 @@ export class UploadComponent implements OnInit, OnDestroy, ControlValueAccessor 
     }
 
 
-    writeValue(value: Model): void {
+    writeValue(value: UploadComponentModel): void {
         const config = this.metadata;
         const fileDatas = [];
         //SFile 的话没有就是 null
@@ -401,7 +401,7 @@ export class UploadComponent implements OnInit, OnDestroy, ControlValueAccessor 
         this.cdr.markForCheck();
     }
 
-    registerOnChange(fn: PublishMethod): void {
+    registerOnChange(fn: UploadComponentPublishMethod): void {
         this.publish = fn;
     }
 
@@ -409,7 +409,7 @@ export class UploadComponent implements OnInit, OnDestroy, ControlValueAccessor 
         this.touch = fn;
     }
 
-    private publish: PublishMethod;
+    private publish: UploadComponentPublishMethod;
     private touch: any;
 
 

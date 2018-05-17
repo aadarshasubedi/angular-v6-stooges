@@ -5,7 +5,7 @@ import {
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 const ANIMATION_TIMINGS = '300ms cubic-bezier(0.25, 0.8, 0.25, 1)';
-interface AnimationEvent { toState: string; fromState: string; }
+export interface OverlayFrameAnimationEvent { toState: string; fromState: string; }
 
 @Component({
   selector: 's-overlay-frame',
@@ -43,7 +43,7 @@ export class OverlayFrameComponent implements OnInit {
     this.animationState = 'enter';
   }
 
-  onAnimationDone(e: AnimationEvent) {
+  onAnimationDone(e: OverlayFrameAnimationEvent) {
     if (e.toState == 'leave') {
       this.animationLeaveEmiter.emit();
     }

@@ -8,11 +8,11 @@ import { AbstractTableComponent } from '../../table/abstract-table.component';
 import { YoutubeLoadingService } from '../../../common/services/youtube-loading.service';
 import { StoogesAppComponent } from '../../../stooges-app/stooges-app.component';
 import { AbstractResourceService } from '../../../entity/services/abstract-resource.service';
-import { KeyAndTControl } from '../../table/table.service';
 import { isValidDate } from '../../../common/methods/is-valid-date';
 import { toOdataSpecialCharacter } from '../../../common/methods/to-odata-special-character';
 import { MatConfirmDialogService, MatConfirmDialogResult } from '../confirm-dialog/confirm.service';
-import { MatTableGenerateRowNgClassFn } from './table.component';
+import { KeyAndTControl } from '../../table/types';
+import { MatTableGenerateRowNgClassFn } from './types';
 
 /*
    future : 

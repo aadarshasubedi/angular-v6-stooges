@@ -9,7 +9,7 @@
     <s-errors #errors
       [control]="formControl">
     </s-errors>
-    <div [hide]="errors.canShow && formControl.invalid">
+    <div [sHide]="errors.canShow && formControl.invalid">
       <ng-content></ng-content>
     </div>
   </mat-hint>

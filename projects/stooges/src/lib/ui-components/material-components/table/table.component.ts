@@ -8,7 +8,6 @@ import { SImage } from '../../../models/Image';
 import { KeyAndTControl } from '../../table/types';
 import { MatTableGenerateRowNgClassFn } from './types';
 
-type Resource = Entity;
 
 @Component({
   selector: 's-mat-table',
@@ -25,8 +24,8 @@ export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
   ) { }
 
   @ContentChildren(MatColumnDef) columnDefs: QueryList<MatColumnDef>;
-  @ContentChildren(MatRowDef) rowDefs: QueryList<MatRowDef<Resource>>;
-  @ViewChild(MatTable) matTable: MatTable<Resource>;
+  @ContentChildren(MatRowDef) rowDefs: QueryList<MatRowDef<Entity>>;
+  @ViewChild(MatTable) matTable: MatTable<Entity>;
   ngAfterContentInit() {
     // note : 
     // mat 并不聪明，没有办法直接处理 ng-content, 需要自己手动 register    
@@ -59,10 +58,10 @@ export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
   }
 
   @Input()
-  dataSource: Observable<Resource>
+  dataSource: Observable<Entity>
 
   @Input()
-  trackBy: TrackByFunction<Resource> = (index: number, item: Resource) => {
+  trackBy: TrackByFunction<Entity> = (index: number, item: Entity) => {
     if (!item) return index;
     return item.Id;
   }
@@ -83,21 +82,21 @@ export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
   cellDraggable: boolean
 
   @Output('cellDragstart')
-  cellDragstartEmitter = new EventEmitter<{ resource: Resource }>();
+  cellDragstartEmitter = new EventEmitter<{ resource: Entity }>();
 
   @Output('cellDragend')
   cellDragendEmitter = new EventEmitter<void>();
 
   @Output('remove')
-  removeEmitter = new EventEmitter<{ resource: Resource }>();
+  removeEmitter = new EventEmitter<{ resource: Entity }>();
 
   @Input()
-  draggingData: Resource
+  draggingData: Entity
 
   @Input()
-  generateRowNgClassFn: MatTableGenerateRowNgClassFn<Resource>
+  generateRowNgClassFn: MatTableGenerateRowNgClassFn<Entity>
 
-  internalGenerateRowNgClassFn: MatTableGenerateRowNgClassFn<Resource> = (resource, index) => {
+  internalGenerateRowNgClassFn: MatTableGenerateRowNgClassFn<Entity> = (resource, index) => {
     let result = {};
     if (this.generateRowNgClassFn) result = {
       ...result,
@@ -114,18 +113,18 @@ export class MatTableComponent implements OnInit, AfterContentInit, OnDestroy {
   rowSDragover: boolean
 
   @Output('rowDragenter')
-  rowDragenterEmitter = new EventEmitter<{ resource: Resource, index: number }>();
+  rowDragenterEmitter = new EventEmitter<{ resource: Entity, index: number }>();
 
-  getByPath(row: Resource, path: string): any {
+  getByPath(row: Entity, path: string): any {
     let value = getByPath(row, path);
     return Array.isArray(value) ? value[0] : value;
   }
 
-  empty(_index: number, resource: Resource | undefined) {
+  empty(_index: number, resource: Entity | undefined) {
     return !resource;
   }
 
-  notEmpty(_index: number, resource: Resource | undefined) {
+  notEmpty(_index: number, resource: Entity | undefined) {
     return resource;
   }
 

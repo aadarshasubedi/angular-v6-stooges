@@ -1,10 +1,12 @@
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
-import * as moment from 'moment';
+// import * as moment from 'moment';
+const moment = require('moment');
 import { AM_PM } from '../../../types';
-type Model = Date | null;
-type PublishMethod = (value: Model) => void;
 
+
+export type TimePickerComponentModel = Date | null;
+export type TimePickerComponentPublishMethod = (value: TimePickerComponentModel) => void;
 
 @Component({
   selector: 's-time-picker',
@@ -72,8 +74,8 @@ export class TimePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  private publish: PublishMethod;
-  registerOnChange(fn: PublishMethod): void {
+  private publish: TimePickerComponentPublishMethod;
+  registerOnChange(fn: TimePickerComponentPublishMethod): void {
     this.publish = fn;
   }
   private touch: any;

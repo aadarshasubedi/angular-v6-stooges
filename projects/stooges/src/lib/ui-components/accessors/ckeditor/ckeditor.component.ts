@@ -26,7 +26,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 // sample
 // <s-ckeditor formControlName="ck" ></s-ckeditor>
 
-type PublishMethod = (value: string) => void;
+export type CkeditorComponentModel = string;
+export type CkeditorComponentPublishMethod = (value: CkeditorComponentModel) => void;
+
 @Component({
   selector: 's-ckeditor',
   templateUrl: './ckeditor.component.html',
@@ -91,7 +93,7 @@ export class CkeditorComponent implements OnInit, OnDestroy, AfterViewInit, Cont
 
   private lockCount = 0; // ck 在 setData 的时候会触发 2 change event, 这是我们不想要的, 所以设计了一个 lockCount 来 skip 掉
 
-  writeValue(value: string): void {
+  writeValue(value: CkeditorComponentModel): void {
     if (this.editor) {
       this.lockCount = 2;
       this.editor.setData(value);
@@ -100,8 +102,8 @@ export class CkeditorComponent implements OnInit, OnDestroy, AfterViewInit, Cont
     }
   }
 
-  private publish: PublishMethod;
-  registerOnChange(fn: PublishMethod): void {
+  private publish: CkeditorComponentPublishMethod;
+  registerOnChange(fn: CkeditorComponentPublishMethod): void {
     this.publish = fn;
   }
   touch: any;

@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit, Optional, ViewChild, ViewContainerRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
+import { Component, forwardRef, OnInit, Optional, ViewChild, ViewContainerRef, TemplateRef, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 
@@ -40,11 +40,11 @@ import { ZoomData } from '../../../zoom/types';
 })
 export class MatUploadComponent extends AbstractAccessorComponent implements OnInit {
 
-  checkPending() {
+  checkPending() : boolean {
     return this.baseUploadComponent.pending;
   }
 
-  getPendingEmitter() {
+  getPendingEmitter() : EventEmitter<void> {
     return this.baseUploadComponent.uploadDoneEmitter;
   }
 
@@ -117,7 +117,7 @@ export class MatUploadComponent extends AbstractAccessorComponent implements OnI
         this.imageService.imageToFrame(expectedFrameWidth, expectedFrameHeight, deviceWidth, deviceHeight, 'contain') :
         { width: expectedFrameWidth, height: expectedFrameHeight };
 
-      const scale = final.width / expectedFrameWidth; // 因为 viewport width 小于 我们期望的 frameWidth 所以压缩, crop 的时候要算回来的
+      const scale = final.width / expectedFrameWidth; // 因为 viewport width 小于 我们期望的 frameWidth 所以压缩, crop 的时候要算回来的    
       return {
         fileData,
         frameWidth: final.width,
